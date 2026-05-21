@@ -11,8 +11,8 @@ export async function createProject(formData: FormData) {
   const description = formData.get('description') as string;
   const content = formData.get('content') as string;
   const tech = (formData.get('tech') as string).split(',').map((t) => t.trim()).filter(Boolean);
-  const link = formData.get('link') as string;
-  const image = formData.get('image') as string;
+  const link = formData.get('link') as string || null;
+  const image = formData.get('image') as string || null;
   const color = formData.get('color') as string;
   const featured = formData.get('featured') === 'true';
 
@@ -20,6 +20,9 @@ export async function createProject(formData: FormData) {
     data: { slug, index, title, category, description, content, tech, link, image, color, featured },
   });
 
+  revalidatePath('/admin/projects');
+  revalidatePath('/projects');
+  revalidatePath('/');
   redirect('/admin/projects');
 }
 
@@ -32,8 +35,8 @@ export async function updateProject(formData: FormData) {
   const description = formData.get('description') as string;
   const content = formData.get('content') as string;
   const tech = (formData.get('tech') as string).split(',').map((t) => t.trim()).filter(Boolean);
-  const link = formData.get('link') as string;
-  const image = formData.get('image') as string;
+  const link = formData.get('link') as string || null;
+  const image = formData.get('image') as string || null;
   const color = formData.get('color') as string;
   const featured = formData.get('featured') === 'true';
 
@@ -42,11 +45,19 @@ export async function updateProject(formData: FormData) {
     data: { slug, index, title, category, description, content, tech, link, image, color, featured },
   });
 
+  revalidatePath('/admin/projects');
+  revalidatePath('/projects');
+  revalidatePath(`/projects/${slug}`);
+  revalidatePath('/');
   redirect('/admin/projects');
 }
 
 export async function deleteProject(formData: FormData) {
   const id = formData.get('id') as string;
   await prisma.project.delete({ where: { id } });
+  
+  revalidatePath('/admin/projects');
+  revalidatePath('/projects');
+  revalidatePath('/');
   redirect('/admin/projects');
 }

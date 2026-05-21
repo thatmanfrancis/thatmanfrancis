@@ -9,34 +9,34 @@ export default function NewProjectPage() {
       
       <form action={createProject} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '800px', marginTop: '2rem' }}>
         <label>Title</label>
-        <input name="title" required style={{ padding: '0.5rem', background: '#333', color: '#fff', border: '1px solid #555' }} />
+        <input name="title" required style={{ padding: '0.5rem', background: '#fff', color: '#000', border: '1px solid #ccc' }} />
         
         <label>Slug</label>
-        <input name="slug" required style={{ padding: '0.5rem', background: '#333', color: '#fff', border: '1px solid #555' }} />
+        <input name="slug" required style={{ padding: '0.5rem', background: '#fff', color: '#000', border: '1px solid #ccc' }} />
         
         <label>Index (e.g. 01)</label>
-        <input name="index" required style={{ padding: '0.5rem', background: '#333', color: '#fff', border: '1px solid #555' }} />
+        <input name="index" required style={{ padding: '0.5rem', background: '#fff', color: '#000', border: '1px solid #ccc' }} />
         
         <label>Category</label>
-        <input name="category" required style={{ padding: '0.5rem', background: '#333', color: '#fff', border: '1px solid #555' }} />
+        <input name="category" required style={{ padding: '0.5rem', background: '#fff', color: '#000', border: '1px solid #ccc' }} />
         
         <label>Description</label>
-        <textarea name="description" required rows={3} style={{ padding: '0.5rem', background: '#333', color: '#fff', border: '1px solid #555' }} />
+        <textarea name="description" required rows={3} style={{ padding: '0.5rem', background: '#fff', color: '#000', border: '1px solid #ccc' }} />
         
         <label>Content (Markdown)</label>
-        <textarea name="content" required rows={15} style={{ padding: '0.5rem', background: '#333', color: '#fff', border: '1px solid #555', fontFamily: 'monospace' }} />
+        <textarea name="content" required rows={15} style={{ padding: '0.5rem', background: '#fff', color: '#000', border: '1px solid #ccc', fontFamily: 'monospace' }} />
         
         <label>Technologies (Comma separated)</label>
-        <input name="tech" placeholder="React, Next.js, Tailwind" style={{ padding: '0.5rem', background: '#333', color: '#fff', border: '1px solid #555' }} />
+        <input name="tech" placeholder="React, Next.js, Tailwind" style={{ padding: '0.5rem', background: '#fff', color: '#000', border: '1px solid #ccc' }} />
         
         <label>Link (URL)</label>
-        <input type="url" name="link" style={{ padding: '0.5rem', background: '#333', color: '#fff', border: '1px solid #555' }} />
+        <input type="url" name="link" style={{ padding: '0.5rem', background: '#fff', color: '#000', border: '1px solid #ccc' }} />
         
         <label>Image URL</label>
-        <input type="url" name="image" style={{ padding: '0.5rem', background: '#333', color: '#fff', border: '1px solid #555' }} />
+        <input type="url" name="image" style={{ padding: '0.5rem', background: '#fff', color: '#000', border: '1px solid #ccc' }} />
         
         <label>Color (e.g. bg-blue-500)</label>
-        <input name="color" defaultValue="bg-white" required style={{ padding: '0.5rem', background: '#333', color: '#fff', border: '1px solid #555' }} />
+        <input name="color" defaultValue="bg-white" required style={{ padding: '0.5rem', background: '#fff', color: '#000', border: '1px solid #ccc' }} />
         
         <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <input type="checkbox" name="featured" value="true" />
