@@ -38,7 +38,7 @@ export default async function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1 flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2">
-              <span className="text-2xl font-black tracking-tight text-zinc-900 font-outfit" style={{ fontVariant: 'small-caps' }}>
+              <span className="text-3xl font-normal text-zinc-900 font-[family-name:var(--font-pacifico)]">
                 Francis
               </span>
             </Link>

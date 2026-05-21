@@ -36,7 +36,7 @@ export default function Navbar() {
     >
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 h-16">
         <Link href="/" className="flex items-center gap-2.5 shrink-0">
-          <span className="text-2xl font-black tracking-tight text-zinc-900 font-outfit" style={{ fontVariant: 'small-caps' }}>
+          <span className="text-3xl font-normal text-zinc-900 font-[family-name:var(--font-pacifico)]">
             Francis
           </span>
         </Link>

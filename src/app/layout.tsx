@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Nunito, Outfit } from "next/font/google";
+import { Nunito, Outfit, Pacifico } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -15,6 +15,12 @@ const outfit = Outfit({
   subsets: ["latin"],
 });
 
+const pacifico = Pacifico({
+  variable: "--font-pacifico",
+  weight: "400",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = defaultMetadata;
 
 export const viewport: Viewport = {
@@ -23,6 +29,7 @@ export const viewport: Viewport = {
   maximumScale: 5,
   userScalable: true,
   themeColor: "#ffffff",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
@@ -33,9 +40,23 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${nunito.variable} ${outfit.variable} font-sans h-full antialiased`}
+      className={`${nunito.variable} ${outfit.variable} ${pacifico.variable} font-sans h-full antialiased light`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                document.documentElement.classList.add('light');
+                document.documentElement.classList.remove('dark');
+                document.documentElement.style.colorScheme = 'light';
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-white text-zinc-900" suppressHydrationWarning>
         <div className="min-h-screen flex flex-col">
           <Navbar />
           <main className="flex-1 w-full max-w-6xl mx-auto px-6 py-12">
