@@ -54,6 +54,21 @@ function calculateReadingTime(content: string) {
   return Math.ceil(words / wordsPerMinute);
 }
 
+function parseMarkdown(content: string): string {
+  let parsed = content;
+  
+  // Convert **bold** to <strong>
+  parsed = parsed.replace(/\*\*(.+?)\*\*/g, '<strong class="font-black text-zinc-900">$1</strong>');
+  
+  // Convert ###underline### to <u>
+  parsed = parsed.replace(/###(.+?)###/g, '<u class="underline decoration-2 underline-offset-4">$1</u>');
+  
+  // Convert line breaks
+  parsed = parsed.replace(/\n/g, '<br/>');
+  
+  return parsed;
+}
+
 export default async function BlogDetailsPage({
   params,
 }: BlogDetailsPageProps) {
@@ -122,7 +137,7 @@ export default async function BlogDetailsPage({
         <div className="prose prose-zinc prose-lg max-w-none prose-headings:uppercase prose-headings:tracking-tighter prose-headings:font-black">
           <div
             dangerouslySetInnerHTML={{
-              __html: blog.content.replace(/\n/g, "<br/>"),
+              __html: parseMarkdown(blog.content),
             }}
           />
         </div>
