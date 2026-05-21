@@ -119,15 +119,15 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
         <div className="lg:col-span-8 space-y-6">
           {/* Header */}
           <div>
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-zinc-900 dark:text-zinc-50 uppercase tracking-tighter leading-[0.85] mb-2">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-zinc-900 uppercase tracking-tighter leading-[0.85] mb-2">
               {project.title}
             </h1>
           </div>
 
           {/* Project Briefing Section */}
-          <div className="py-5 border-y border-zinc-100 dark:border-zinc-850">
-            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-500 mb-3">Project Briefing</h4>
-            <p className="text-xl md:text-3xl font-black text-zinc-850 dark:text-zinc-150 leading-tight tracking-tight italic font-serif">
+          <div className="py-5 border-y border-zinc-100">
+            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-900 mb-3">Project Briefing</h4>
+            <p className="text-xl md:text-3xl font-black text-zinc-900 leading-tight tracking-tight italic font-serif">
               &quot;{project.description}&quot;
             </p>
           </div>
@@ -139,7 +139,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
                 <span>IMAGE_FEED // SYSTEM_ATTACHMENT</span>
                 <span>ASPECT: 16_9</span>
               </div>
-              <div className="border border-zinc-150 dark:border-zinc-850 rounded-2xl overflow-hidden aspect-16/9 relative bg-zinc-50 dark:bg-zinc-900/40">
+              <div className="border border-zinc-150 dark:border-zinc-850 rounded-2xl overflow-hidden aspect-video relative bg-zinc-50 dark:bg-zinc-900/40">
                 <Image
                   src={project.image}
                   alt={`${project.title} Interface Preview`}
@@ -155,7 +155,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
 
           {/* Full Documentation Section */}
           <div className="space-y-3">
-            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-500">Case Study & Documentation</h4>
+            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-900">Case Study & Documentation</h4>
             <div 
               className="max-w-none prose dark:prose-invert"
               dangerouslySetInnerHTML={{ __html: processedHtml }} 
@@ -164,9 +164,9 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
         </div>
 
         {/* Right Column (Sticky Technical Metadata card matching About's Technical Arsenal) */}
-        <div className="lg:col-span-4 lg:sticky lg:top-24 self-start border border-zinc-150 dark:border-zinc-850 bg-zinc-50/10 dark:bg-zinc-900/5 rounded-2xl p-6 sm:p-8 space-y-6">
+        <div className="lg:col-span-4 lg:sticky lg:top-24 self-start border border-zinc-200 bg-zinc-50/10 rounded-2xl p-6 sm:p-8 space-y-6">
           <div>
-            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 mb-1">
+            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-900 mb-1">
               Project Archive
             </h3>
             <p className="text-xs text-zinc-500 font-medium">
@@ -175,10 +175,10 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
           </div>
 
           {/* Details list */}
-          <div className="space-y-6 pt-4 border-t border-zinc-150 dark:border-zinc-850">
+          <div className="space-y-6 pt-4 border-t border-zinc-200">
             {/* ID */}
             <div>
-              <span className="block text-[9px] font-black uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-550 mb-1">
+              <span className="block text-[9px] font-black uppercase tracking-[0.2em] text-zinc-900 mb-1">
                 Project ID
               </span>
               <span className="text-base font-extrabold text-zinc-900 dark:text-zinc-100 uppercase tracking-tight">
@@ -188,7 +188,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
 
             {/* Category */}
             <div>
-              <span className="block text-[9px] font-black uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-550 mb-1">
+              <span className="block text-[9px] font-black uppercase tracking-[0.2em] text-zinc-900 mb-1">
                 Category
               </span>
               <span className="text-base font-extrabold text-zinc-900 dark:text-zinc-100 uppercase tracking-tight">
@@ -198,7 +198,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
 
             {/* Tech Stack */}
             <div>
-              <span className="block text-[9px] font-black uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-550 mb-2">
+              <span className="block text-[9px] font-black uppercase tracking-[0.2em] text-zinc-900 mb-2">
                 Tech Stack
               </span>
               <div className="flex flex-wrap gap-x-2.5 gap-y-1">
@@ -215,12 +215,12 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
 
             {/* Action link */}
             {project.link && (
-              <div className="pt-4 border-t border-zinc-150 dark:border-zinc-850">
+              <div className="pt-4 border-t border-zinc-200">
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full group inline-flex items-center justify-center gap-2.5 rounded-full bg-zinc-950 dark:bg-zinc-50 text-white dark:text-zinc-950 px-6 py-4 text-xs font-black uppercase tracking-widest hover:bg-zinc-800 dark:hover:bg-zinc-200 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 cursor-pointer text-center"
+                  className="w-full group inline-flex items-center justify-center gap-2.5 rounded-full bg-zinc-950 text-white px-6 py-4 text-xs font-black uppercase tracking-widest hover:bg-zinc-800 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 cursor-pointer text-center"
                 >
                   Visit Interface
                   <svg

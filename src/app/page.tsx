@@ -44,7 +44,7 @@ export default async function Home() {
       <div className="py-12 pb-32 space-y-24">
       <section className="min-h-[65vh] flex flex-col items-center justify-center text-center space-y-10 max-w-4xl mx-auto">
         <div className="space-y-4">
-          <p className="text-[10px] font-black uppercase tracking-[0.35em] text-zinc-400">
+          <p className="text-[10px] font-black uppercase tracking-[0.35em] text-zinc-900">
             Software Engineer
           </p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-zinc-900 leading-[0.95]">
@@ -59,7 +59,7 @@ export default async function Home() {
           </p>
 
           <div className="space-y-2">
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400">
+            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-900">
               Location
             </p>
             <p className="text-sm font-black uppercase tracking-[0.18em] text-zinc-900">
@@ -94,12 +94,12 @@ export default async function Home() {
 
       <section className="space-y-10 max-w-5xl mx-auto">
         <div className="text-center space-y-3 border-b border-zinc-200 pb-6">
-          <h2 className="text-[10px] font-black uppercase tracking-[0.35em] text-zinc-400">
+          <h2 className="text-[10px] font-black uppercase tracking-[0.35em] text-zinc-900">
             Featured Work
           </h2>
           <Link
             href="/projects"
-            className="inline-block text-xs font-black uppercase tracking-[0.18em] text-zinc-500 transition-colors hover:text-zinc-900"
+            className="inline-block text-xs font-black uppercase tracking-[0.18em] text-zinc-900 transition-colors hover:text-zinc-600"
           >
             All Projects
           </Link>
@@ -116,7 +116,7 @@ export default async function Home() {
                 <div className="text-sm font-black text-zinc-300 group-hover:text-zinc-900 transition-colors">
                   {project.index}
                 </div>
-                <p className="text-[10px] font-black uppercase tracking-[0.25em] text-zinc-400">
+                <p className="text-[10px] font-black uppercase tracking-[0.25em] text-zinc-900">
                   {project.category}
                 </p>
                 <h3 className="text-3xl sm:text-5xl font-black uppercase tracking-tighter text-zinc-900">
@@ -134,7 +134,7 @@ export default async function Home() {
       <section className="pt-4 border-t border-zinc-200 max-w-4xl mx-auto">
         <div className="flex flex-col items-center gap-6 text-center">
           <div className="space-y-2">
-            <p className="text-[10px] font-black uppercase tracking-[0.35em] text-zinc-400">
+            <p className="text-[10px] font-black uppercase tracking-[0.35em] text-zinc-900">
               Availability
             </p>
             <p className="text-2xl sm:text-3xl font-black uppercase tracking-tighter text-zinc-900">

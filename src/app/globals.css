@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  color-scheme: light only;
+  color-scheme: light only !important;
 }
 
 @theme inline {
@@ -23,16 +23,28 @@
 /* Force light mode - override system dark mode preference */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ffffff;
-    --foreground: #171717;
-    color-scheme: light only;
+    --background: #ffffff !important;
+    --foreground: #171717 !important;
+    color-scheme: light only !important;
   }
   
   html {
-    color-scheme: light only;
+    color-scheme: light only !important;
+    background: #ffffff !important;
+  }
+  
+  body {
+    background: #ffffff !important;
+    color: #171717 !important;
+  }
+  
+  /* Prevent any dark mode styles from being applied */
+  * {
+    color-scheme: light only !important;
   }
 }
 
+html,
 body {
   background: var(--background);
   color: var(--foreground);

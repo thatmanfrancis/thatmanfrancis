@@ -48,9 +48,37 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
+                // Force light mode immediately
                 document.documentElement.classList.add('light');
                 document.documentElement.classList.remove('dark');
                 document.documentElement.style.colorScheme = 'light';
+                document.documentElement.setAttribute('data-theme', 'light');
+                
+                // Override any system preference
+                if (window.matchMedia) {
+                  const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+                  if (darkModeQuery.matches) {
+                    document.documentElement.style.colorScheme = 'light';
+                  }
+                }
+                
+                // Prevent dark mode from being applied
+                const observer = new MutationObserver(function(mutations) {
+                  mutations.forEach(function(mutation) {
+                    if (mutation.attributeName === 'class') {
+                      const classList = document.documentElement.classList;
+                      if (classList.contains('dark')) {
+                        classList.remove('dark');
+                        classList.add('light');
+                      }
+                    }
+                  });
+                });
+                
+                observer.observe(document.documentElement, {
+                  attributes: true,
+                  attributeFilter: ['class']
+                });
               })();
             `,
           }}

@@ -26,10 +26,10 @@ export default function ContactPage() {
         {/* Left Column - Contact Form */}
         <div className="lg:col-span-7 space-y-10">
           <div>
-            <h1 className="text-3xl sm:text-6xl font-black tracking-tighter text-zinc-900 dark:text-white mb-4 uppercase">
+            <h1 className="text-3xl sm:text-6xl font-black tracking-tighter text-zinc-900 mb-4 uppercase">
               Get in Touch
             </h1>
-            <p className="text-lg text-zinc-650 dark:text-zinc-400 leading-relaxed font-serif italic max-w-xl">
+            <p className="text-lg text-zinc-600 leading-relaxed font-serif italic max-w-xl">
               Have a project in mind, want to discuss a collaboration, or just want to say hi? I&apos;d love to hear from you.
             </p>
           </div>
@@ -37,42 +37,42 @@ export default function ContactPage() {
           <form className="space-y-6 max-w-2xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+                <label className="text-[10px] font-black text-zinc-900 uppercase tracking-widest">
                   Name
                 </label>
                 <input
                   type="text"
                   placeholder="Your name"
                   required
-                  className="w-full px-5 py-3.5 rounded-lg bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 outline-none focus:border-zinc-950 dark:focus:border-zinc-300 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 transition-all duration-300 focus:ring-1 focus:ring-zinc-950 dark:focus:ring-zinc-300"
+                  className="w-full px-5 py-3.5 rounded-lg bg-white border border-zinc-200 outline-none focus:border-zinc-950 text-zinc-900 placeholder-zinc-400 transition-all duration-300 focus:ring-1 focus:ring-zinc-950"
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+                <label className="text-[10px] font-black text-zinc-900 uppercase tracking-widest">
                   Email
                 </label>
                 <input
                   type="email"
                   placeholder="Your email"
                   required
-                  className="w-full px-5 py-3.5 rounded-lg bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 outline-none focus:border-zinc-950 dark:focus:border-zinc-300 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 transition-all duration-300 focus:ring-1 focus:ring-zinc-950 dark:focus:ring-zinc-300"
+                  className="w-full px-5 py-3.5 rounded-lg bg-white border border-zinc-200 outline-none focus:border-zinc-950 text-zinc-900 placeholder-zinc-400 transition-all duration-300 focus:ring-1 focus:ring-zinc-950"
                 />
               </div>
             </div>
             <div className="space-y-2">
-              <label className="text-[10px] font-black text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+              <label className="text-[10px] font-black text-zinc-900 uppercase tracking-widest">
                 Message
               </label>
               <textarea
                 rows={5}
                 required
                 placeholder="Tell me about your project, goals, or schedule..."
-                className="w-full px-5 py-4 rounded-xl bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 outline-none focus:border-zinc-950 dark:focus:border-zinc-300 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 transition-all duration-300 focus:ring-1 focus:ring-zinc-950 dark:focus:ring-zinc-300 resize-none"
+                className="w-full px-5 py-4 rounded-xl bg-white border border-zinc-200 outline-none focus:border-zinc-950 text-zinc-900 placeholder-zinc-400 transition-all duration-300 focus:ring-1 focus:ring-zinc-950 resize-none"
               ></textarea>
             </div>
             <button
               type="submit"
-              className="w-full md:w-auto group inline-flex items-center justify-center gap-2.5 rounded-full bg-zinc-950 dark:bg-zinc-50 text-white dark:text-zinc-950 px-10 py-4.5 text-xs font-black uppercase tracking-widest hover:bg-zinc-800 dark:hover:bg-zinc-200 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 shadow-md hover:shadow-lg active:scale-98 cursor-pointer"
+              className="w-full md:w-auto group inline-flex items-center justify-center gap-2.5 rounded-md bg-zinc-950 text-white px-10 py-4.5 text-xs font-black uppercase tracking-widest hover:bg-zinc-800 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 shadow-md hover:shadow-lg active:scale-98 cursor-pointer"
             >
               Send Message
               <svg
