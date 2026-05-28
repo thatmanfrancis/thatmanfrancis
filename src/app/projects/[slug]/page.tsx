@@ -1,258 +1,146 @@
-import BackButton from "@/components/BackButton";
-import { prisma } from "@/lib/prisma";
-import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import { generateMetadata as generateMeta } from "@/lib/metadata";
-import { generateProjectSchema, generateBreadcrumbSchema } from "@/lib/structured-data";
-import type { Metadata } from "next";
+import BackButton from "@/components/BackButton";
+import ProjectShowcase from "@/components/ProjectShowcase";
 
-interface ProjectDetailsPageProps {
+const MOCK_PROJECTS = {
+  "aakkio": {
+    title: "Aakkio Academy",
+    category: "Full-Stack Development & EdTech",
+    description: "An enterprise e-learning platform delivering course tools, progress tracking, checkout flows, and learner dashboards.",
+    images: [],
+    tech: ["Next.js", "Zustand", "React Query", "Tailwind CSS", "RESTful APIs", "JWT Auth"],
+    problem: "Aakkio needed a high-performance, responsive e-learning dashboard and course orchestration platform engineered from zero to production in just 8 weeks to capture critical West African markets, requiring speed optimization for slow mobile connections.",
+    solution: "Architected the full platform with Next.js Server-Side Rendering (SSR) across all product lines (Academy, Toolkit, Insight). Optimised asset delivery and pipelines, drastically reducing initial page load times for low-bandwidth connections. Integrated checkout payments directly with instant course enrollment.",
+  },
+  "terrafirma": {
+    title: "Terrafirma Capital",
+    category: "React Engineering & FinTech Security",
+    description: "A secure investment platform featuring protected routes, real-time financial metrics, and JWT session rotation.",
+    images: [],
+    tech: ["React.js", "Node.js", "Express.js", "PostgreSQL", "JWT", "Redis"],
+    problem: "Terrafirma needed a highly secure investor dashboard with real-time financial charts, dynamic data visualization, and extremely strict role-based access control to protect private transaction records.",
+    solution: "Developed the entire React.js frontend from the first line of code. Built custom role-based investor and administrator dashboards. Implemented secure JWT session management with automated token-refresh routines, HTTPS enforcement, and dense validation guards at every endpoint layer.",
+  },
+  "jurisnova": {
+    title: "JurisNova (AI MVP)",
+    category: "AI Engineering & LegalTech",
+    description: "An AI-powered legal translation tool providing plain-language access to legal rights and obligations.",
+    images: [],
+    tech: ["Next.js", "TypeScript", "AI APIs", "PostgreSQL", "Tailwind CSS"],
+    problem: "Everyday citizens across Nigeria and the world struggle to understand their legal rights and obligations due to dense legal jargon and high professional fees for basic legal inquiries.",
+    solution: "Currently engineering the MVP: building a natural language query interface, a serverless AI response translation engine, and a structured legal database designed to instantly strip out complex jargon and serve legal queries in clear, plain language.",
+  },
+  "lemonwares": {
+    title: "Lemonwares SaaS Engine",
+    category: "Lead Architecture & DevOps Automation",
+    description: "High-performance client web architectures and scalable DevOps platforms automated via CI/CD pipelines.",
+    images: [],
+    tech: ["Next.js", "Docker", "GitHub Actions", "GraphQL", "AWS EC2/S3"],
+    problem: "Lemonwares needed to scale up client web delivery, standardize reusable components, and eliminate manual, error-prone deployment steps across 14 distinct client systems.",
+    solution: "Led frontend architecture standards for 14 client projects delivered in 12 months. Enforced reusable UI systems and clean Git conventions. Introduced automated CI/CD pipelines using GitHub Actions, completely eliminating manual deployment steps and reducing release failures to absolute zero.",
+  },
+};
+
+interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateMetadata({
-  params,
-}: ProjectDetailsPageProps): Promise<Metadata> {
+export default async function ProjectDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const project = await prisma.project.findUnique({
-    where: { slug },
-  });
+  const project = MOCK_PROJECTS[slug as keyof typeof MOCK_PROJECTS];
 
   if (!project) {
-    return generateMeta();
+    // If not found in the custom mock list, fallback gracefully to a standard showcase display
+    const fallbackTitle = slug
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+
+    return (
+      <BoilerplateProjectDetail title={fallbackTitle} />
+    );
   }
-
-  return generateMeta({
-    title: `${project.title} - ${project.category} Project`,
-    description: project.description,
-    url: `https://thatmanfrancis.vercel.app/projects/${project.slug}`,
-    image: project.image || undefined,
-    keywords: [
-      project.category.toLowerCase(),
-      ...project.tech.map((t) => t.toLowerCase()),
-      "project case study",
-      "portfolio project",
-    ],
-  });
-}
-
-export async function generateStaticParams() {
-  const projects = await prisma.project.findMany({
-    select: { slug: true },
-  });
-
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
-}
-
-function processContent(content: string) {
-  // Pure processing for a single-column layout
-  return content.split('\n').map((line) => {
-    if (line.startsWith('#')) {
-      const text = line.replace(/^#+\s*/, '');
-      return `
-        <div class="mt-8 mb-3 border-b border-zinc-100 dark:border-zinc-850 pb-2">
-          <h4 class="text-sm font-black uppercase tracking-tighter text-zinc-900 dark:text-zinc-50 font-sans">${text}</h4>
-        </div>
-      `;
-    }
-    
-    if (line.trim() === '') return '';
-    
-    if (line.startsWith('-') || line.startsWith('*')) {
-      const text = line.replace(/^[-*]\s*/, '');
-      return `
-        <div class="flex gap-4 mb-4 items-start pl-1 font-sans">
-          <div class="mt-2.5 h-1.5 w-1.5 bg-zinc-900 dark:bg-zinc-100 rounded-full shrink-0"></div>
-          <p class="text-zinc-650 dark:text-zinc-350 text-base font-semibold leading-relaxed">${text}</p>
-        </div>
-      `;
-    }
-
-    return `<p class="text-zinc-650 dark:text-zinc-350 text-base font-semibold leading-relaxed mb-3 font-sans">${line}</p>`;
-  }).join('');
-}
-
-export default async function ProjectDetailsPage({ params }: ProjectDetailsPageProps) {
-  const { slug } = await params;
-  
-  if (!slug) {
-    notFound();
-  }
-
-  const project = await prisma.project.findUnique({
-    where: { slug }
-  });
-
-  if (!project) {
-    notFound();
-  }
-
-  const processedHtml = processContent(project.content);
-  const projectSchema = generateProjectSchema(project);
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Home", url: "https://thatmanfrancis.vercel.app" },
-    { name: "Projects", url: "https://thatmanfrancis.vercel.app/projects" },
-    { name: project.title, url: `https://thatmanfrancis.vercel.app/projects/${project.slug}` },
-  ]);
 
   return (
-    <>
-      {/* JSON-LD Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
+    <div className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-background text-foreground antialiased font-sans">
+      {/* Scroll to Top Override */}
+      <script dangerouslySetInnerHTML={{ __html: "window.scrollTo({ top: 0, behavior: 'instant' });" }} />
 
-      <div className="max-w-6xl py-4 pb-32">
-      <BackButton />
+      {/* Background Accent */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* Main Asymmetric Layout Grid matching About/Contact */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mt-8">
-        
-        {/* Left Column (Scrollable details and rich content) */}
-        <div className="lg:col-span-8 space-y-6">
-          {/* Header */}
-          <div>
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-zinc-900 uppercase tracking-tighter leading-[0.85] mb-2">
-              {project.title}
-            </h1>
-          </div>
-
-          {/* Project Briefing Section */}
-          <div className="py-5 border-y border-zinc-100">
-            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-900 mb-3">Project Briefing</h4>
-            <p className="text-xl md:text-3xl font-black text-zinc-900 leading-tight tracking-tight italic font-serif">
-              &quot;{project.description}&quot;
-            </p>
-          </div>
-
-          {/* Screenshot Attachments */}
-          {project.image && (
-            <div className="space-y-3">
-              <div className="flex items-center justify-between text-[9px] font-mono text-zinc-400 dark:text-zinc-500 px-1">
-                <span>IMAGE_FEED // SYSTEM_ATTACHMENT</span>
-                <span>ASPECT: 16_9</span>
-              </div>
-              <div className="border border-zinc-150 dark:border-zinc-850 rounded-2xl overflow-hidden aspect-video relative bg-zinc-50 dark:bg-zinc-900/40">
-                <Image
-                  src={project.image}
-                  alt={`${project.title} Interface Preview`}
-                  width={1280}
-                  height={720}
-                  unoptimized
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.01]"
-                  priority
-                />
-              </div>
-            </div>
-          )}
-
-          {/* Full Documentation Section */}
-          <div className="space-y-3">
-            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-900">Case Study & Documentation</h4>
-            <div 
-              className="max-w-none prose dark:prose-invert"
-              dangerouslySetInnerHTML={{ __html: processedHtml }} 
-            />
-          </div>
+      {/* Main Content */}
+      <main className="flex-1 w-full max-w-5xl mx-auto px-0 sm:px-6 pt-2 pb-16 z-10 space-y-8">
+        <div>
+          <BackButton />
+        </div>
+        <div className="space-y-4 border-b border-foreground/5 pb-8">
+          <span className="text-xs font-semibold uppercase tracking-wider text-accent">
+            {project.category}
+          </span>
+          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight">
+            {project.title}
+          </h1>
+          <p className="text-lg text-muted max-w-2xl">
+            {project.description}
+          </p>
         </div>
 
-        {/* Right Column (Sticky Technical Metadata card matching About's Technical Arsenal) */}
-        <div className="lg:col-span-4 lg:sticky lg:top-24 self-start border border-zinc-200 bg-zinc-50/10 rounded-2xl p-6 sm:p-8 space-y-6">
-          <div>
-            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-900 mb-1">
-              Project Archive
-            </h3>
-            <p className="text-xs text-zinc-500 font-medium">
-              Core properties, category, and interface links.
-            </p>
-          </div>
+        {/* Dynamic Mobile Carousel & Desktop Masonry Showcase */}
+        <ProjectShowcase
+          title={project.title}
+          category={project.category}
+          description={project.description}
+          images={project.images}
+          tech={project.tech}
+          problem={project.problem}
+          solution={project.solution}
+        />
+      </main>
 
-          {/* Details list */}
-          <div className="space-y-6 pt-4 border-t border-zinc-200">
-            {/* ID */}
-            <div>
-              <span className="block text-[9px] font-black uppercase tracking-[0.2em] text-zinc-900 mb-1">
-                Project ID
-              </span>
-              <span className="text-base font-extrabold text-zinc-900 dark:text-zinc-100 uppercase tracking-tight">
-                ID_{project.index}
-              </span>
-            </div>
-
-            {/* Category */}
-            <div>
-              <span className="block text-[9px] font-black uppercase tracking-[0.2em] text-zinc-900 mb-1">
-                Category
-              </span>
-              <span className="text-base font-extrabold text-zinc-900 dark:text-zinc-100 uppercase tracking-tight">
-                {project.category}
-              </span>
-            </div>
-
-            {/* Tech Stack */}
-            <div>
-              <span className="block text-[9px] font-black uppercase tracking-[0.2em] text-zinc-900 mb-2">
-                Tech Stack
-              </span>
-              <div className="flex flex-wrap gap-x-2.5 gap-y-1">
-                {project.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs font-mono tracking-wide text-zinc-500 dark:text-zinc-400"
-                  >
-                    #{t.replace(/\s+/g, "").toLowerCase()}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Action link */}
-            {project.link && (
-              <div className="pt-4 border-t border-zinc-200">
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full group inline-flex items-center justify-center gap-2.5 rounded-full bg-zinc-950 text-white px-6 py-4 text-xs font-black uppercase tracking-widest hover:bg-zinc-800 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 cursor-pointer text-center"
-                >
-                  Visit Interface
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3.5"
-                    className="transition-transform duration-300 group-hover:translate-x-1.5"
-                  >
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </a>
-              </div>
-            )}
-          </div>
-        </div>
-
-      </div>
-
-      {/* Platform Footer */}
-      <footer className="mt-20 pt-12 border-t border-zinc-100 dark:border-zinc-850 flex flex-col items-center gap-4 opacity-45">
-        <div className="text-[9px] font-black uppercase tracking-[0.8em] text-zinc-900 dark:text-zinc-100">SYSTEM_RECORD_CLOSED</div>
-        <div className="flex gap-4">
-          <div className="h-2 w-2 bg-zinc-900 dark:bg-zinc-150 rounded-full"></div>
-          <div className="h-2 w-2 bg-zinc-900 dark:bg-zinc-150 rounded-full"></div>
-          <div className="h-2 w-2 bg-zinc-900 dark:bg-zinc-150 rounded-full"></div>
-        </div>
+      {/* Footer */}
+      <footer className="w-full max-w-6xl mx-auto px-6 py-8 border-t border-foreground/5 text-center text-xs text-muted z-10">
+        <p>&copy; {new Date().getFullYear()} Francis Uzoigwe. All rights reserved.</p>
       </footer>
     </div>
-    </>
+  );
+}
+
+function BoilerplateProjectDetail({ title }: { title: string }) {
+  const tech = ["React", "Next.js", "TypeScript", "Tailwind CSS", "Docker"];
+  const problem = "Here you can outline the constraints, timeline, and client specifications for the project.";
+  const solution = "Explain your role in the codebase design, architectural solutions, and development stages.";
+
+  return (
+    <div className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-background text-foreground antialiased font-sans">
+      {/* Scroll to Top Override */}
+      <script dangerouslySetInnerHTML={{ __html: "window.scrollTo({ top: 0, behavior: 'instant' });" }} />
+
+      {/* Main Content */}
+      <main className="flex-1 w-full max-w-5xl mx-auto px-0 sm:px-6 pt-2 pb-16 z-10 space-y-8">
+        <div>
+          <BackButton />
+        </div>
+        <div className="space-y-4 border-b border-foreground/5 pb-8">
+          <span className="text-xs font-semibold uppercase tracking-wider text-accent">Case Study</span>
+          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight">{title}</h1>
+        </div>
+
+        <ProjectShowcase
+          title={title}
+          category="Software Architecture"
+          description="This is a clean, dynamic case study page boilerplate ready for you to add your specific work description."
+          images={[]}
+          tech={tech}
+          problem={problem}
+          solution={solution}
+        />
+      </main>
+
+      <footer className="w-full max-w-6xl mx-auto px-6 py-8 border-t border-foreground/5 text-center text-xs text-muted z-10">
+        <p>&copy; {new Date().getFullYear()} Francis Uzoigwe. All rights reserved.</p>
+      </footer>
+    </div>
   );
 }

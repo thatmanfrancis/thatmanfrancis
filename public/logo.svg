@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Minimalist dark box -->
+  <rect width="100" height="100" rx="28" fill="#09090B"/>
+  
+  <!-- Outer glowing tech accent border -->
+  <rect x="4" y="4" width="92" height="92" rx="24" stroke="url(#borderGrad)" strokeWidth="2.5" opacity="0.8"/>
+  
+  <!-- Sleek Nova Square typographic < F /> concept -->
+  <!-- Opening bracket "<" -->
+  <path d="M26 40L14 50L26 60" stroke="#38BDF8" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
+  
+  <!-- Geometric "F" letter matching the high-tech Nova Square design -->
+  <path d="M42 34V66" stroke="#FFFFFF" strokeWidth="8" strokeLinecap="round"/>
+  <path d="M42 34H62" stroke="#FFFFFF" strokeWidth="8" strokeLinecap="round"/>
+  <path d="M42 48H56" stroke="#FFFFFF" strokeWidth="8" strokeLinecap="round"/>
+  
+  <!-- Closing bracket "/>" -->
+  <path d="M66 62L76 38" stroke="#F43F5E" strokeWidth="5" strokeLinecap="round"/>
+  <path d="M74 40L86 50L74 60" stroke="#EC4899" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
+
+  <defs>
+    <linearGradient id="borderGrad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#EC4899" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+</svg>

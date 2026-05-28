@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Error({
   error,
@@ -14,24 +14,41 @@ export default function Error({
     console.error("[Francis App Error]", error);
   }, [error]);
 
+  const router = useRouter();
+
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-6">
       <div className="w-full max-w-md text-center">
         {/* Big 500 */}
-        <p className="text-8xl font-extrabold text-zinc-200 leading-none mb-6 select-none">500</p>
+        <p className="text-8xl font-extrabold text-zinc-200 leading-none mb-6 select-none">
+          500
+        </p>
 
         {/* Icon */}
         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white border border-zinc-200 mx-auto mb-5">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-400">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="8" x2="12" y2="12"/>
-            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-zinc-400"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
           </svg>
         </div>
 
-        <h1 className="text-2xl font-extrabold text-zinc-900 mb-2">Something went wrong</h1>
+        <h1 className="text-2xl font-extrabold text-zinc-900 mb-2">
+          Something went wrong
+        </h1>
         <p className="text-sm text-zinc-400 leading-relaxed mb-8">
-          An unexpected error occurred. I've been notified and will look into it shortly.
+          An unexpected error occurred. I've been notified and will look into it
+          shortly.
         </p>
 
         {error.digest && (
@@ -40,19 +57,19 @@ export default function Error({
           </p>
         )}
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <div className="flex flex-col hover:cursor-pointer sm:flex-row items-center justify-center gap-3">
           <button
             onClick={reset}
             className="rounded-full bg-zinc-900 text-white px-7 py-3 text-sm font-bold hover:bg-zinc-700 transition-colors"
           >
             Try again
           </button>
-          <Link
-            href="/"
+          <div
+            onClick={() => router.back()}
             className="rounded-full border border-zinc-200 text-zinc-700 px-7 py-3 text-sm font-bold hover:border-zinc-400 transition-colors"
           >
-            Go home
-          </Link>
+            Go back
+          </div>
         </div>
       </div>
     </div>
