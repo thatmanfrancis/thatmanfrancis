@@ -1,92 +1,43 @@
-<div align="center">
+# Francis Uzoigwe — Full-Stack Software Engineer & DevOps Architect
 
-### SOFTWARE ENGINEER
+**Building production-grade, scalable web applications from Lagos, Nigeria.**
 
-# Hi, I'm Francis
+I specialize in turning complex ideas into reliable, high-performance systems — from pixel-perfect interfaces to zero-downtime infrastructure.
 
-**Software Engineer building thoughtful digital products.**
+[View Live Portfolio →](https://francisuzoigwe.me)
 
-📍 **LAGOS, NIGERIA**
+## About Me
 
-<br>
+Full-Stack Engineer with 5+ years of hands-on experience shipping real-world products. I bridge modern frontend development with robust backend systems and DevOps practices to deliver solutions that scale.
 
-[![View Projects](https://img.shields.io/badge/VIEW_PROJECTS-000000?style=for-the-badge&logoColor=white)](https://thatmanfrancis.vercel.app/projects)
-[![Get in Touch](https://img.shields.io/badge/GET_IN_TOUCH-FFFFFF?style=for-the-badge&logo=mail&logoColor=000000&border=1)](https://thatmanfrancis.vercel.app/contact)
-[![View CV](https://img.shields.io/badge/VIEW_CV-FFFFFF?style=for-the-badge&logo=googledrive&logoColor=000000)](https://drive.google.com/file/d/1Tnxlj0QdBEy20VhKrDb0cjbsi27bHctH/view?usp=sharing)
+Currently focused on building **Hausevo** — a modern real estate management platform for the Nigerian market.
 
-</div>
+## Technical Skills
 
----
+- **Frontend**: Next.js, React, TypeScript, Tailwind CSS, Zustand, React Query
+- **Backend**: Node.js, Express, Prisma ORM
+- **Database**: PostgreSQL, Redis
+- **DevOps & Infrastructure**: Docker, AWS, Nginx, PM2, CI/CD (GitHub Actions), Linux
+- **Others**: JWT Authentication, GraphQL, AI Integration (Google Gemini)
 
-## 👋 About Me
+## Featured Projects
 
-I'm a software engineer passionate about creating digital experiences that matter. I focus on building products that are not only functional but also intuitive and delightful to use. Based in Lagos, Nigeria, I work with modern technologies to bring ideas to life.
+- **[Hausevo](https://github.com/thatmanfrancis/Hausevo)** — Real Estate Management SaaS (Live: [hausevo.com.ng](https://hausevo.com.ng))
+- **[Aakkio Academy](https://francisuzoigwe.me/projects/aakkio)** — Enterprise e-learning platform
+- **[Terrafirma Capital](https://francisuzoigwe.me/projects/terrafirma)** — Secure investment platform with role-based dashboards
+- **[JurisNova](https://francisuzoigwe.me/projects/jurisnova)** — AI-powered legal translation tool
+- **[Lemonwares SaaS Engine](https://francisuzoigwe.me/projects/lemonwares)** — Scalable client architectures + DevOps infrastructure
 
-## 💼 What I Do
+## Open for Opportunities
 
-I specialize in full-stack development, creating end-to-end solutions from concept to deployment. My work spans:
+I'm actively looking for **remote Full-Stack, Frontend, or DevOps Engineer roles** worldwide (UTC+1 friendly).
 
-- **Web Applications** - Building responsive, performant web apps that scale
-- **API Development** - Designing and implementing robust backend systems
-- **Database Architecture** - Structuring data for efficiency and reliability
-- **UI/UX Implementation** - Translating designs into pixel-perfect interfaces
-- **System Integration** - Connecting services and third-party APIs seamlessly
-
-## 🎯 My Approach
-
-I believe great software is built on three pillars:
-
-1. **Clean Code** - Writing maintainable, well-documented code that teams can work with
-2. **User Focus** - Keeping the end user at the center of every decision
-3. **Continuous Learning** - Staying current with technologies and best practices
-
-## 🚀 Featured Work
-
-Visit my [portfolio](https://thatmanfrancis.vercel.app/projects) to see projects I've worked on, including:
-
-- Full-stack web applications
-- Database-driven platforms
-- Real-time integrations
-- Content management systems
-
-Each project showcases different aspects of my skill set and problem-solving approach.
-
-## 🛠️ Technical Skills
-
-**Languages & Frameworks**  
-JavaScript/TypeScript, React, Next.js, Node.js
-
-**Databases & Tools**  
-PostgreSQL, Prisma ORM, MongoDB, Git
-
-**Design & Styling**  
-Tailwind CSS, Responsive Design, UI/UX Principles
-
-**Other**  
-RESTful APIs, GraphQL, Authentication, Deployment & DevOps
-
-## 📫 Let's Connect
-
-I'm currently **open for new opportunities** and always interested in collaborating on exciting projects.
-
-- **Portfolio:** [thatmanfrancis.vercel.app](https://thatmanfrancis.vercel.app)
-- **Email:** kossyuzoigwe@gmail.com
-- **Location:** Lagos, Nigeria
-
-Whether you're looking to build something new, need help with an existing project, or just want to chat about tech, feel free to reach out.
+- **Portfolio**: [francisuzoigwe.me](https://francisuzoigwe.me)
+- **Email**: kossyuzoigwe@gmail.com
+- **LinkedIn**: [francisuzoigwe](https://linkedin.com/in/francisuzoigwe)
+- **GitHub**: [thatmanfrancis](https://github.com/thatmanfrancis)
+- **X**: [@thatmanfrancis](https://x.com/thatmanfrancis)
 
 ---
-
-<div align="center">
-
-### AVAILABILITY
-
-# Open for new opportunities
-
-[![Start a Project](https://img.shields.io/badge/START_A_PROJECT-000000?style=for-the-badge&logoColor=white)](https://thatmanfrancis.vercel.app/contact)
-
-<br>
 
 **© 2026 Francis Kossyrisochukwu Uzoigwe**
-
-</div>
