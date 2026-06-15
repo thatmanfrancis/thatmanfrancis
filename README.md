@@ -1,4 +1,4 @@
-<img src="https://github.com/thatmanfrancis/thatmanfrancis/blob/main/screenshots/hausevo-logo.png" width="160" alt="Hausevo Logo">
+<!-- <img src="https://github.com/thatmanfrancis/thatmanfrancis/blob/main/screenshots/hausevo-logo.png" width="160" alt="Hausevo Logo"> -->
 
 # Francis Uzoigwe — Full-Stack Software Engineer
 
