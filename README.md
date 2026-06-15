@@ -1,43 +1,55 @@
-# Francis Uzoigwe — Full-Stack Software Engineer & DevOps Architect
+<img src="https://github.com/thatmanfrancis/thatmanfrancis/blob/main/screenshots/hausevo-logo.png" width="160" alt="Hausevo Logo">
 
-**Building production-grade, scalable web applications from Lagos, Nigeria.**
+# Francis Uzoigwe — Full-Stack Software Engineer
 
-I specialize in turning complex ideas into reliable, high-performance systems — from pixel-perfect interfaces to zero-downtime infrastructure.
+**Building production-grade web applications from Lagos, Nigeria.**
+
+I specialize in taking ideas from concept to production — delivering clean, scalable, and maintainable systems that solve real business problems.
+
+Currently shipping **Hausevo**, a modern real estate management platform for the Nigerian market.
 
 [View Live Portfolio →](https://francisuzoigwe.me)
 
+---
+
 ## About Me
 
-Full-Stack Engineer with 5+ years of hands-on experience shipping real-world products. I bridge modern frontend development with robust backend systems and DevOps practices to deliver solutions that scale.
+Full-Stack Engineer with strong experience in modern web technologies and DevOps practices. I focus on building reliable, high-performance applications that are easy to maintain and scale.
 
-Currently focused on building **Hausevo** — a modern real estate management platform for the Nigerian market.
-
-## Technical Skills
-
-- **Frontend**: Next.js, React, TypeScript, Tailwind CSS, Zustand, React Query
-- **Backend**: Node.js, Express, Prisma ORM
-- **Database**: PostgreSQL, Redis
-- **DevOps & Infrastructure**: Docker, AWS, Nginx, PM2, CI/CD (GitHub Actions), Linux
-- **Others**: JWT Authentication, GraphQL, AI Integration (Google Gemini)
+I work comfortably in UTC+1 and am actively open to **remote Full-Stack / Frontend / DevOps roles** worldwide.
 
 ## Featured Projects
 
-- **[Hausevo](https://github.com/thatmanfrancis/Hausevo)** — Real Estate Management SaaS (Live: [hausevo.com.ng](https://hausevo.com.ng))
+- **[Hausevo](https://github.com/thatmanfrancis/Hausevo)** — Real Estate Management SaaS  
+  Live: [hausevo.com.ng](https://hausevo.com.ng)
+
 - **[Aakkio Academy](https://francisuzoigwe.me/projects/aakkio)** — Enterprise e-learning platform
-- **[Terrafirma Capital](https://francisuzoigwe.me/projects/terrafirma)** — Secure investment platform with role-based dashboards
+  Live: [aakkio.com](https://aakkio.com)
+
+- **[Terrafirma Capital](https://francisuzoigwe.me/projects/terrafirma)** — Investment & asset management platform
+  Live: [terrafirmacapital.co](https://terrafirmacapital.co)
+
 - **[JurisNova](https://francisuzoigwe.me/projects/jurisnova)** — AI-powered legal translation tool
-- **[Lemonwares SaaS Engine](https://francisuzoigwe.me/projects/lemonwares)** — Scalable client architectures + DevOps infrastructure
 
-## Open for Opportunities
+## Technical Skills
 
-I'm actively looking for **remote Full-Stack, Frontend, or DevOps Engineer roles** worldwide (UTC+1 friendly).
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+
+## Let's Connect
 
 - **Portfolio**: [francisuzoigwe.me](https://francisuzoigwe.me)
 - **Email**: kossyuzoigwe@gmail.com
 - **LinkedIn**: [francisuzoigwe](https://linkedin.com/in/francisuzoigwe)
-- **GitHub**: [thatmanfrancis](https://github.com/thatmanfrancis)
 - **X**: [@thatmanfrancis](https://x.com/thatmanfrancis)
+- **Phone**: +2347047474886
+- **Instagram**: [thatmanfrancis](https://instagram.com/thatmanfrancis)
+- **Facebook**: [thatmanfrancis](https://facebook.com/thatmanfrancis)
 
 ---
 
-**© 2026 Francis Kossyrisochukwu Uzoigwe**
+**Open to remote opportunities • Available immediately**
