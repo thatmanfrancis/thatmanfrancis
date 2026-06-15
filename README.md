@@ -40,7 +40,7 @@ I work comfortably in UTC+1 and am actively open to **remote Full-Stack / Fronte
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 
-**Other Tools**: Docker, Nginx, PM2, GitHub Actions, Google Gemini AI, React Query, Zustand
+**Other Tools**: Docker, Nginx, PM2, GitHub Actions, Google Gemini AI, React Query, Zustand, OAuth, Playwright
 
 ## Let's Connect
 
