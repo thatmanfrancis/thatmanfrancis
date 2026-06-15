@@ -21,15 +21,20 @@ I work comfortably in UTC+1 and am actively open to **remote Full-Stack / Fronte
 ## Featured Projects
 
 - **[Hausevo](https://github.com/thatmanfrancis/Hausevo)** — Real Estate Management SaaS  
-   Live: [hausevo.com.ng](https://hausevo.com.ng)
+Live: [hausevo.com.ng](https://hausevo.com.ng)
 
-- **[Aakkio Academy](https://francisuzoigwe.me/projects/aakkio)** — Enterprise e-learning platform
-   Live: [aakkio.com](https://aakkio.com)
+- **[Aakkio Academy](https://francisuzoigwe.me/projects/aakkio)** — Enterprise e-learning platform   
+Live: [aakkio.com](https://aakkio.com)
 
-- **[Terrafirma Capital](https://francisuzoigwe.me/projects/terrafirma)** — Investment & asset management platform
-   Live: [terrafirmacapital.co](https://terrafirmacapital.co)
+- **[Terrafirma Capital](https://francisuzoigwe.me/projects/terrafirma)** — Investment & asset management platform   
+Live: [terrafirmacapital.co](https://terrafirmacapital.co)
 
-- **[JurisNova](https://francisuzoigwe.me/projects/jurisnova)** — AI-powered legal translation tool
+- **[JurisNova](https://francisuzoigwe.me/projects/jurisnova)** — AI-powered legal translation tool   
+
+## Download CV
+
+[Download Resume (PDF)](https://docs.google.com/document/d/198Tm_YQwJP4WTPDCcAyt4DHmw8SeNDWs3H-Thlcq2EY/edit?usp=sharing)
+
 
 ## Technical Skills
 
@@ -39,8 +44,11 @@ I work comfortably in UTC+1 and am actively open to **remote Full-Stack / Fronte
 ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Nginx](https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white)
+![PM2](https://img.shields.io/badge/PM2-000000?style=for-the-badge&logo=pm2&logoColor=white)
 
-**Other Tools**: Docker, Nginx, PM2, GitHub Actions, Google Gemini AI, React Query, Zustand, OAuth, Playwright
+**Other Tools**: GitHub Actions, Google Gemini AI, React Query, Zustand, OAuth, Playwright
 
 ## Let's Connect
 
