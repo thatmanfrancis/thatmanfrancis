@@ -21,13 +21,13 @@ I work comfortably in UTC+1 and am actively open to **remote Full-Stack / Fronte
 ## Featured Projects
 
 - **[Hausevo](https://github.com/thatmanfrancis/Hausevo)** — Real Estate Management SaaS  
-  Live: [hausevo.com.ng](https://hausevo.com.ng)
+   Live: [hausevo.com.ng](https://hausevo.com.ng)
 
 - **[Aakkio Academy](https://francisuzoigwe.me/projects/aakkio)** — Enterprise e-learning platform
-  Live: [aakkio.com](https://aakkio.com)
+   Live: [aakkio.com](https://aakkio.com)
 
 - **[Terrafirma Capital](https://francisuzoigwe.me/projects/terrafirma)** — Investment & asset management platform
-  Live: [terrafirmacapital.co](https://terrafirmacapital.co)
+   Live: [terrafirmacapital.co](https://terrafirmacapital.co)
 
 - **[JurisNova](https://francisuzoigwe.me/projects/jurisnova)** — AI-powered legal translation tool
 
