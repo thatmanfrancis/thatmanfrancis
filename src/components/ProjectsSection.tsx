@@ -1,3 +1,7 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
 
 export default function ProjectsSection() {
@@ -10,77 +14,103 @@ export default function ProjectsSection() {
         <h2 className="text-3xl font-bold tracking-tight">Featured Projects</h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {projects.map((project) => {
-          return (
-            <a
-              key={project.slug}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {projects.map((project, i) => (
+          <motion.div
+            key={project.slug}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: i * 0.08 }}
+          >
+            <Link
               href={`/projects/${project.slug}`}
-              className="group relative flex flex-col justify-between border border-foreground/10 bg-background/40 dark:bg-background/20 backdrop-blur-md rounded-xl shadow-[0_20px_50px_-20px_rgba(0,0,0,0.15)] hover:border-accent/30 hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,0.25)] hover:-translate-y-1 transition-all duration-500 overflow-hidden min-h-[360px]"
+              className="group relative flex flex-col h-full rounded-2xl border border-foreground/8 bg-foreground/1.5 hover:border-accent/30 hover:bg-foreground/3 transition-all duration-300 overflow-hidden"
             >
-              {/* Glowing Background Accent */}
-              <div className="absolute inset-0 bg-linear-to-tr from-accent/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              {/* Top accent bar on hover */}
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
-              {/* Image Layout */}
-              <div className="relative overflow-hidden bg-foreground/3 shrink-0 w-full h-40 md:h-48">
-                {project.img ? (
-                  <>
-                    <img
-                      src={project.img}
-                      alt={project.alt}
-                      className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-background/40 to-transparent pointer-events-none" />
-                  </>
-                ) : (
-                  <div className="w-full h-full bg-linear-to-br from-accent/5 to-accent/15 flex flex-col items-center justify-center space-y-2.5">
-                    <div className="w-10 h-10 rounded-full bg-foreground/2 border border-foreground/5 flex items-center justify-center text-accent/80 shadow-xs group-hover:scale-105 transition-transform duration-300">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+              <div className="flex flex-col flex-1 p-6 gap-5">
+                {/* Header row: number + title + thumbnail */}
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-start gap-4">
+                    {/* Index number */}
+                    <span className="text-[10px] font-black tracking-widest text-accent/50 mt-1 shrink-0 w-5">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <h3 className="text-lg font-bold tracking-tight leading-snug group-hover:text-accent transition-colors duration-300">
+                        {project.title}
+                      </h3>
+                      <p className="text-xs text-muted mt-1.5 leading-relaxed line-clamp-2">
+                        {project.desc}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Thumbnail */}
+                  {project.img ? (
+                    <div className="shrink-0 w-16 h-16 rounded-xl overflow-hidden border border-foreground/8 bg-foreground/5 flex items-center justify-center">
+                      <img
+                        src={project.img}
+                        alt={project.alt}
+                        className="w-full h-full p-1.5 object-contain group-hover:scale-110 transition-transform duration-500"
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).style.display = "none";
+                        }}
+                      />
+                    </div>
+                  ) : (
+                    <div className="shrink-0 w-16 h-16 rounded-xl border border-foreground/8 bg-foreground/3 flex items-center justify-center text-accent/40">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-5 h-5"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
+                        />
                       </svg>
                     </div>
-                    <span className="text-[9px] uppercase tracking-widest font-black text-muted">
-                      No Image Yet
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              {/* Text Layout */}
-              <div className="p-5 md:p-6 flex flex-col justify-between flex-1 w-full">
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <h3 className="text-2xl font-bold tracking-tight group-hover:text-accent transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm text-muted leading-relaxed">
-                      {project.desc}
-                    </p>
-                  </div>
+                  )}
                 </div>
 
-                <div className="space-y-4 pt-4">
-                  {/* Tech stack badges */}
+                {/* Divider */}
+                <div className="border-t border-foreground/5" />
+
+                {/* Footer row: tech + CTA */}
+                <div className="flex items-center justify-between gap-4">
+                  {/* Tech pills */}
                   <div className="flex flex-wrap gap-1.5">
-                    {project.tech.map((t) => (
+                    {project.tech.slice(0, 4).map((t) => (
                       <span
                         key={t}
-                        className="text-[10px] px-2 py-0.5 rounded border border-foreground/5 bg-foreground/2 text-muted"
+                        className="text-[10px] px-2 py-0.5 rounded-full border border-foreground/8 bg-foreground/2 text-muted font-medium"
                       >
                         {t}
                       </span>
                     ))}
+                    {project.tech.length > 4 && (
+                      <span className="text-[10px] px-2 py-0.5 rounded-full border border-foreground/8 bg-foreground/2 text-muted font-medium">
+                        +{project.tech.length - 4}
+                      </span>
+                    )}
                   </div>
 
-                  {/* View indicator */}
-                  <span className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-accent group-hover:translate-x-1 transition-transform duration-300">
-                    View Project <span className="ml-1">→</span>
+                  {/* CTA arrow */}
+                  <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-accent shrink-0 group-hover:translate-x-1 transition-transform duration-300">
+                    View <span>→</span>
                   </span>
                 </div>
               </div>
-            </a>
-          );
-        })}
+            </Link>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

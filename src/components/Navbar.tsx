@@ -211,7 +211,7 @@ export default function Navbar() {
           <button
             onClick={toggleTheme}
             aria-label="Toggle Theme Mode"
-            className="w-9 h-9 rounded-lg border border-foreground/10 bg-foreground/1 hover:bg-foreground/2 flex items-center justify-center text-foreground hover:scale-105 transition-all duration-300 cursor-pointer"
+            className="w-9 h-9 rounded-full border border-foreground/10 bg-foreground/1 hover:bg-foreground/5 flex items-center justify-center text-foreground transition-all duration-300 cursor-pointer"
           >
             {theme === "light" ? (
               // Moon Icon
@@ -253,7 +253,7 @@ export default function Navbar() {
             href="https://docs.google.com/document/d/198Tm_YQwJP4WTPDCcAyt4DHmw8SeNDWs3H-Thlcq2EY"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center px-4 py-2 rounded-lg border border-foreground/10 text-foreground hover:bg-foreground/5 text-xs font-semibold transition-all duration-300"
+            className="hidden sm:inline-flex items-center px-5 py-2 rounded-full border border-foreground/10 text-foreground hover:bg-foreground/5 text-xs font-bold transition-all duration-300"
           >
             View CV
           </a>
@@ -261,7 +261,7 @@ export default function Navbar() {
           {/* Contact Button */}
           <Link
             href="/#contact"
-            className="hidden sm:inline-flex items-center px-4 py-2 rounded-lg bg-foreground text-background text-xs font-semibold hover:opacity-90 transition-opacity"
+            className="hidden sm:inline-flex items-center px-5 py-2 rounded-full bg-foreground text-background text-xs font-bold hover:opacity-85 transition-opacity"
           >
             Hire Me
           </Link>
@@ -269,7 +269,7 @@ export default function Navbar() {
           {/* Stateful Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="flex sm:hidden w-9 h-9 rounded-lg border border-foreground/10 bg-foreground/1 hover:bg-foreground/2 items-center justify-center text-foreground cursor-pointer transition-colors duration-300"
+            className="flex sm:hidden w-9 h-9 rounded-full border border-foreground/10 bg-foreground/1 hover:bg-foreground/2 items-center justify-center text-foreground cursor-pointer transition-colors duration-300"
             aria-label="Toggle Mobile Navigation"
           >
             {isMobileMenuOpen ? (

@@ -1,44 +1,101 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import BackButton from "@/components/BackButton";
 import ProjectShowcase from "@/components/ProjectShowcase";
 
-const MOCK_PROJECTS = {
-  "aakkio": {
+const PROJECTS = {
+  aakkio: {
     title: "Aakkio Academy",
-    category: "Full-Stack Development & EdTech",
-    description: "An enterprise e-learning platform delivering course tools, progress tracking, checkout flows, and learner dashboards.",
-    images: [],
-    tech: ["Next.js", "Zustand", "React Query", "Tailwind CSS", "RESTful APIs", "JWT Auth"],
-    problem: "Aakkio needed a high-performance, responsive e-learning dashboard and course orchestration platform engineered from zero to production in just 8 weeks to capture critical West African markets, requiring speed optimization for slow mobile connections.",
-    solution: "Architected the full platform with Next.js Server-Side Rendering (SSR) across all product lines (Academy, Toolkit, Insight). Optimised asset delivery and pipelines, drastically reducing initial page load times for low-bandwidth connections. Integrated checkout payments directly with instant course enrollment.",
+    description:
+      "An enterprise e-learning platform delivering course creation tools, enrollment flows, progress tracking, and learner dashboards — shipped from zero to production in 8 weeks for the West African market.",
+    images: [
+      "https://github.com/thatmanfrancis/Aakkio/raw/main/screenshots/home.png",
+      "https://github.com/thatmanfrancis/Aakkio/raw/main/screenshots/home.png",
+    ] as string[],
+    tech: [
+      "Next.js",
+      "Zustand",
+      "React Query",
+      "Tailwind CSS",
+      "RESTful APIs",
+      "JWT Auth",
+    ],
+    problem:
+      "Aakkio needed a high-performance, responsive e-learning dashboard and course orchestration platform engineered from zero to production in just 8 weeks to capture critical West African markets, requiring speed optimization for slow mobile connections.",
+    solution:
+      "Architected the full platform with Next.js SSR across all product lines (Academy, Toolkit, Insight). Optimised asset delivery and pipelines, drastically reducing initial page load times for low-bandwidth connections. Integrated checkout payments directly with instant course enrollment.",
+    nextSlug: "terrafirma",
+    nextTitle: "Terrafirma Capital",
+    url: "https://aakkio.com",
   },
-  "terrafirma": {
+  terrafirma: {
     title: "Terrafirma Capital",
-    category: "React Engineering & FinTech Security",
-    description: "A secure investment platform featuring protected routes, real-time financial metrics, and JWT session rotation.",
-    images: [],
+    description:
+      "A secure investment platform featuring role-based dashboards, real-time financial metrics, and automated JWT session rotation — built for absolute data integrity under high-volume traffic.",
+    images: [] as string[],
     tech: ["React.js", "Node.js", "Express.js", "PostgreSQL", "JWT", "Redis"],
-    problem: "Terrafirma needed a highly secure investor dashboard with real-time financial charts, dynamic data visualization, and extremely strict role-based access control to protect private transaction records.",
-    solution: "Developed the entire React.js frontend from the first line of code. Built custom role-based investor and administrator dashboards. Implemented secure JWT session management with automated token-refresh routines, HTTPS enforcement, and dense validation guards at every endpoint layer.",
+    problem:
+      "Terrafirma needed a highly secure investor dashboard with real-time financial charts, dynamic data visualization, and extremely strict role-based access control to protect private transaction records.",
+    solution:
+      "Developed the entire React.js frontend from first-principles. Built custom role-based investor and administrator dashboards. Implemented secure JWT session management with automated token-refresh routines, HTTPS enforcement, and dense validation guards at every endpoint layer.",
+    nextSlug: "hausevo",
+    nextTitle: "Hausevo",
+    url: "https://terrafirmacapital.co",
   },
-  "jurisnova": {
-    title: "JurisNova (AI MVP)",
-    category: "AI Engineering & LegalTech",
-    description: "An AI-powered legal translation tool providing plain-language access to legal rights and obligations.",
-    images: [],
-    tech: ["Next.js", "TypeScript", "AI APIs", "PostgreSQL", "Tailwind CSS"],
-    problem: "Everyday citizens across Nigeria and the world struggle to understand their legal rights and obligations due to dense legal jargon and high professional fees for basic legal inquiries.",
-    solution: "Currently engineering the MVP: building a natural language query interface, a serverless AI response translation engine, and a structured legal database designed to instantly strip out complex jargon and serve legal queries in clear, plain language.",
+  hausevo: {
+    title: "Hausevo",
+    description:
+      "A real estate platform built to connect property seekers with verified landlords, featuring authenticated listings, secure communication, and transparent transaction flows.",
+    images: [
+      "https://github.com/thatmanfrancis/Hausevo/raw/main/screenshots/detailed.png",
+      "https://github.com/thatmanfrancis/Hausevo/raw/main/screenshots/home.png",
+      "https://github.com/thatmanfrancis/Hausevo/raw/main/screenshots/blog.png",
+      "https://github.com/thatmanfrancis/Hausevo/raw/main/screenshots/contact.png",
+      "https://github.com/thatmanfrancis/Hausevo/raw/main/screenshots/auth.png",
+    ] as string[],
+    tech: [
+      "Next.js",
+      "Zustand",
+      "React Query",
+      "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL",
+      "Nginx",
+      "PM2",
+    ],
+    problem:
+      "Operations and admin teams at Hausevo faced a massive operational bottleneck. They had to constantly rely on the engineering team to handle daily tasks like managing dispute requests, processing maintenance updates, auditing landlord verifications, and onboarding local artisans.",
+    solution:
+      "Designed and engineered a custom, role-based admin dashboard empowering operational teams with autonomous modules for Dispute Resolution, Maintenance Tracking, Landlord Verifications, and Artisan Management. Architected the backend using Prisma and PostgreSQL to handle complex transactional relationships, and deployed the stack using Nginx and PM2 on a secure VPS.",
+    nextSlug: "evalocal",
+    nextTitle: "EVALocal",
+    url: "https://hausevo.com.ng",
   },
-  "lemonwares": {
-    title: "Lemonwares SaaS Engine",
-    category: "Lead Architecture & DevOps Automation",
-    description: "High-performance client web architectures and scalable DevOps platforms automated via CI/CD pipelines.",
-    images: [],
-    tech: ["Next.js", "Docker", "GitHub Actions", "GraphQL", "AWS EC2/S3"],
-    problem: "Lemonwares needed to scale up client web delivery, standardize reusable components, and eliminate manual, error-prone deployment steps across 14 distinct client systems.",
-    solution: "Led frontend architecture standards for 14 client projects delivered in 12 months. Enforced reusable UI systems and clean Git conventions. Introduced automated CI/CD pipelines using GitHub Actions, completely eliminating manual deployment steps and reducing release failures to absolute zero.",
+  evalocal: {
+    title: "EVALocal",
+    description:
+      "A marketplace connecting users with verified suppliers, featuring intelligent data aggregation and analysis to streamline market research and product discovery in the UK.",
+    images: [
+      "https://github.com/thatmanfrancis/Evalocal/raw/main/screenshots/evalocal.png",
+      "https://github.com/thatmanfrancis/Evalocal/raw/main/screenshots/evalocalauth.png",
+      "https://github.com/thatmanfrancis/Evalocal/raw/main/screenshots/evalocalbrowse.png",
+    ] as string[],
+    tech: [
+      "Next.js",
+      "Docker",
+      "GitHub Actions",
+      "GraphQL",
+      "AWS EC2/S3",
+      "Node.js",
+      "PostgreSQL",
+    ],
+    problem:
+      "Users and buyers in the UK lacked a centralized, high-performance portal to perform market research and instantly discover verified local suppliers. The existing manual discovery flows were slow, unaggregated, and lacked real-time filtering and supplier data analysis.",
+    solution:
+      "Built EVALocal, a supplier discovery marketplace featuring intelligent data aggregation and fast faceted search. Orchestrated a scalable web layer on Next.js communicating via a GraphQL API, backed by automated containerization with Docker and standard CI/CD deployment pipelines on AWS.",
+    nextSlug: "aakkio",
+    nextTitle: "Aakkio Academy",
+    url: "https://evalocal.com",
   },
 };
 
@@ -48,98 +105,87 @@ interface PageProps {
 
 export default async function ProjectDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const project = MOCK_PROJECTS[slug as keyof typeof MOCK_PROJECTS];
+  const project = PROJECTS[slug as keyof typeof PROJECTS];
 
-  if (!project) {
-    // If not found in the custom mock list, fallback gracefully to a standard showcase display
-    const fallbackTitle = slug
-      .split("-")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-
-    return (
-      <BoilerplateProjectDetail title={fallbackTitle} />
-    );
-  }
+  if (!project) notFound();
 
   return (
-    <div className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-background text-foreground antialiased font-sans">
-      {/* Scroll to Top Override */}
-      <script dangerouslySetInnerHTML={{ __html: "window.scrollTo({ top: 0, behavior: 'instant' });" }} />
+    <div className="relative min-h-screen flex flex-col bg-background text-foreground antialiased font-sans">
+      {/* Ambient glow */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-accent/3 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* Background Accent */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
+      <main className="flex-1 w-full max-w-5xl mx-auto px-5 sm:px-8 pt-4 pb-20 z-10 space-y-8">
+        <BackButton />
 
-      {/* Main Content */}
-      <main className="flex-1 w-full max-w-5xl mx-auto px-0 sm:px-6 pt-2 pb-16 z-10 space-y-8">
-        <div>
-          <BackButton />
-        </div>
-        <div className="space-y-4 border-b border-foreground/5 pb-8">
-          <span className="text-xs font-semibold uppercase tracking-wider text-accent">
-            {project.category}
-          </span>
-          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight">
-            {project.title}
-          </h1>
-          <p className="text-lg text-muted max-w-2xl">
+        {/* Slim hero — just title + desc + link */}
+        <div className="space-y-4 pb-6 border-b border-foreground/5">
+          <div className="space-y-1">
+            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.05]">
+              {project.title}
+            </h1>
+            {project.url && (
+              <div className="pt-1">
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-accent hover:text-accent/80 transition-colors"
+                >
+                  <span>Visit Live Project</span>
+                  <span className="text-[10px] select-none">↗</span>
+                </a>
+              </div>
+            )}
+          </div>
+          <p className="text-base text-muted leading-relaxed max-w-2xl">
             {project.description}
           </p>
         </div>
 
-        {/* Dynamic Mobile Carousel & Desktop Masonry Showcase */}
+        {/* Showcase — images first, then case study */}
         <ProjectShowcase
           title={project.title}
-          category={project.category}
-          description={project.description}
           images={project.images}
           tech={project.tech}
           problem={project.problem}
           solution={project.solution}
         />
+
+        {/* Next Project */}
+        <div className="pt-6 border-t border-foreground/5">
+          <Link
+            href={`/projects/${project.nextSlug}`}
+            className="group flex items-center justify-between w-full p-6 rounded-2xl border border-foreground/8 hover:border-accent/25 hover:bg-foreground/2 transition-all duration-300"
+          >
+            <div className="space-y-1">
+              <span className="block text-[10px] font-extrabold uppercase tracking-[0.2em] text-muted">
+                Next Project
+              </span>
+              <span className="block text-lg font-bold text-foreground group-hover:text-accent transition-colors duration-300">
+                {project.nextTitle}
+              </span>
+            </div>
+            <span className="text-2xl text-muted group-hover:text-accent group-hover:translate-x-1.5 transition-all duration-300">
+              →
+            </span>
+          </Link>
+        </div>
       </main>
 
-      {/* Footer */}
-      <footer className="w-full max-w-6xl mx-auto px-6 py-8 border-t border-foreground/5 text-center text-xs text-muted z-10">
-        <p>&copy; {new Date().getFullYear()} Francis Uzoigwe. All rights reserved.</p>
-      </footer>
-    </div>
-  );
-}
-
-function BoilerplateProjectDetail({ title }: { title: string }) {
-  const tech = ["React", "Next.js", "TypeScript", "Tailwind CSS", "Docker"];
-  const problem = "Here you can outline the constraints, timeline, and client specifications for the project.";
-  const solution = "Explain your role in the codebase design, architectural solutions, and development stages.";
-
-  return (
-    <div className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-background text-foreground antialiased font-sans">
-      {/* Scroll to Top Override */}
-      <script dangerouslySetInnerHTML={{ __html: "window.scrollTo({ top: 0, behavior: 'instant' });" }} />
-
-      {/* Main Content */}
-      <main className="flex-1 w-full max-w-5xl mx-auto px-0 sm:px-6 pt-2 pb-16 z-10 space-y-8">
-        <div>
-          <BackButton />
-        </div>
-        <div className="space-y-4 border-b border-foreground/5 pb-8">
-          <span className="text-xs font-semibold uppercase tracking-wider text-accent">Case Study</span>
-          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight">{title}</h1>
-        </div>
-
-        <ProjectShowcase
-          title={title}
-          category="Software Architecture"
-          description="This is a clean, dynamic case study page boilerplate ready for you to add your specific work description."
-          images={[]}
-          tech={tech}
-          problem={problem}
-          solution={solution}
-        />
-      </main>
-
-      <footer className="w-full max-w-6xl mx-auto px-6 py-8 border-t border-foreground/5 text-center text-xs text-muted z-10">
-        <p>&copy; {new Date().getFullYear()} Francis Uzoigwe. All rights reserved.</p>
+      <footer className="w-full max-w-5xl mx-auto px-5 sm:px-8 py-8 border-t border-foreground/5 flex flex-col sm:flex-row items-center justify-between gap-4 z-10">
+        <p className="text-xs text-muted">
+          &copy; {new Date().getFullYear()} Francis K. Uzoigwe. All rights
+          reserved.
+        </p>
+        <a
+          href="https://github.com/thatmanfrancis"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[10px] font-extrabold uppercase tracking-widest text-muted hover:text-foreground transition-colors"
+        >
+          Designed by thatmanfrancis ↗
+        </a>
       </footer>
     </div>
   );

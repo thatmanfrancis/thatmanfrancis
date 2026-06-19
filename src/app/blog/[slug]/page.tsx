@@ -244,9 +244,6 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <div className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-background text-foreground antialiased font-sans">
-      {/* Scroll to Top Override */}
-      <script dangerouslySetInnerHTML={{ __html: "window.scrollTo({ top: 0, behavior: 'instant' });" }} />
-
       {/* Background Accent */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
 
