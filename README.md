@@ -1,92 +1,65 @@
-<div align="center">
+<!-- <img src="https://github.com/thatmanfrancis/thatmanfrancis/blob/main/screenshots/hausevo-logo.png" width="160" alt="Hausevo Logo"> -->
 
-### SOFTWARE ENGINEER
+# Francis Uzoigwe — Full-Stack Software Engineer
 
-# Hi, I'm Francis
+**Building production-grade web applications from Lagos, Nigeria.**
 
-**Software Engineer building thoughtful digital products.**
+I specialize in taking ideas from concept to production — delivering clean, scalable, and maintainable systems that solve real business problems.
 
-📍 **LAGOS, NIGERIA**
+Currently shipping **Hausevo**, a modern real estate management platform for the Nigerian market.
 
-<br>
-
-[![View Projects](https://img.shields.io/badge/VIEW_PROJECTS-000000?style=for-the-badge&logoColor=white)](https://thatmanfrancis.vercel.app/projects)
-[![Get in Touch](https://img.shields.io/badge/GET_IN_TOUCH-FFFFFF?style=for-the-badge&logo=mail&logoColor=000000&border=1)](https://thatmanfrancis.vercel.app/contact)
-[![View CV](https://img.shields.io/badge/VIEW_CV-FFFFFF?style=for-the-badge&logo=googledrive&logoColor=000000)](https://drive.google.com/file/d/1Tnxlj0QdBEy20VhKrDb0cjbsi27bHctH/view?usp=sharing)
-
-</div>
+[View Live Portfolio →](https://francisuzoigwe.me)
 
 ---
 
-## 👋 About Me
+## About Me
 
-I'm a software engineer passionate about creating digital experiences that matter. I focus on building products that are not only functional but also intuitive and delightful to use. Based in Lagos, Nigeria, I work with modern technologies to bring ideas to life.
+Full-Stack Engineer with strong experience in modern web technologies and DevOps practices. I focus on building reliable, high-performance applications that are easy to maintain and scale.
 
-## 💼 What I Do
+I work comfortably in UTC+1 and am actively open to **remote Full-Stack / Frontend / DevOps roles** worldwide.
 
-I specialize in full-stack development, creating end-to-end solutions from concept to deployment. My work spans:
+## Featured Projects
 
-- **Web Applications** - Building responsive, performant web apps that scale
-- **API Development** - Designing and implementing robust backend systems
-- **Database Architecture** - Structuring data for efficiency and reliability
-- **UI/UX Implementation** - Translating designs into pixel-perfect interfaces
-- **System Integration** - Connecting services and third-party APIs seamlessly
+- **[Hausevo](https://github.com/thatmanfrancis/Hausevo)** — Real Estate Management SaaS  
+Live: [hausevo.com.ng](https://hausevo.com.ng)
 
-## 🎯 My Approach
+- **[Aakkio Academy](https://francisuzoigwe.me/projects/aakkio)** — Enterprise e-learning platform   
+Live: [aakkio.com](https://aakkio.com)
 
-I believe great software is built on three pillars:
+- **[Terrafirma Capital](https://francisuzoigwe.me/projects/terrafirma)** — Investment & asset management platform   
+Live: [terrafirmacapital.co](https://terrafirmacapital.co)
 
-1. **Clean Code** - Writing maintainable, well-documented code that teams can work with
-2. **User Focus** - Keeping the end user at the center of every decision
-3. **Continuous Learning** - Staying current with technologies and best practices
+- **[JurisNova](https://francisuzoigwe.me/projects/jurisnova)** — AI-powered legal translation tool   
 
-## 🚀 Featured Work
+## Download CV
 
-Visit my [portfolio](https://thatmanfrancis.vercel.app/projects) to see projects I've worked on, including:
+[Download Resume (PDF)](https://docs.google.com/document/d/198Tm_YQwJP4WTPDCcAyt4DHmw8SeNDWs3H-Thlcq2EY/edit?usp=sharing)
 
-- Full-stack web applications
-- Database-driven platforms
-- Real-time integrations
-- Content management systems
 
-Each project showcases different aspects of my skill set and problem-solving approach.
+## Technical Skills
 
-## 🛠️ Technical Skills
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Nginx](https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white)
+![PM2](https://img.shields.io/badge/PM2-000000?style=for-the-badge&logo=pm2&logoColor=white)
 
-**Languages & Frameworks**  
-JavaScript/TypeScript, React, Next.js, Node.js
+**Other Tools**: GitHub Actions, Google Gemini AI, React Query, Zustand, OAuth, Playwright
 
-**Databases & Tools**  
-PostgreSQL, Prisma ORM, MongoDB, Git
+## Let's Connect
 
-**Design & Styling**  
-Tailwind CSS, Responsive Design, UI/UX Principles
-
-**Other**  
-RESTful APIs, GraphQL, Authentication, Deployment & DevOps
-
-## 📫 Let's Connect
-
-I'm currently **open for new opportunities** and always interested in collaborating on exciting projects.
-
-- **Portfolio:** [thatmanfrancis.vercel.app](https://thatmanfrancis.vercel.app)
-- **Email:** kossyuzoigwe@gmail.com
-- **Location:** Lagos, Nigeria
-
-Whether you're looking to build something new, need help with an existing project, or just want to chat about tech, feel free to reach out.
+- **Portfolio**: [francisuzoigwe.me](https://francisuzoigwe.me)
+- **Email**: kossyuzoigwe@gmail.com
+- **LinkedIn**: [francisuzoigwe](https://linkedin.com/in/francisuzoigwe)
+- **X**: [@thatmanfrancis](https://x.com/thatmanfrancis)
+- **Phone**: +2347047474886
+- **Instagram**: [thatmanfrancis](https://instagram.com/thatmanfrancis)
+- **Facebook**: [thatmanfrancis](https://facebook.com/thatmanfrancis)
 
 ---
 
-<div align="center">
-
-### AVAILABILITY
-
-# Open for new opportunities
-
-[![Start a Project](https://img.shields.io/badge/START_A_PROJECT-000000?style=for-the-badge&logoColor=white)](https://thatmanfrancis.vercel.app/contact)
-
-<br>
-
-**© 2026 Francis Kossyrisochukwu Uzoigwe**
-
-</div>
+**Open to remote opportunities • Available immediately**
