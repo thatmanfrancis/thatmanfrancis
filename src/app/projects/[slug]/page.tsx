@@ -172,6 +172,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           </Link>
         </div>
       </main>
+      {/* This won't be easy */}
 
       <footer className="w-full max-w-5xl mx-auto px-5 sm:px-8 py-8 border-t border-foreground/5 flex flex-col sm:flex-row items-center justify-between gap-4 z-10">
         <p className="text-xs text-muted">
