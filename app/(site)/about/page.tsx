@@ -19,7 +19,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSettings();
   return publicPageMetadata({
     title: "About",
-    description: settings.aboutBody ?? settings.metaDescription,
+    description:
+      settings.aboutBody ??
+      "About Francis Kossyrisochukwu Uzoigwe, a full-stack engineer in Lagos building end-to-end web products with Next.js, TypeScript, and modern backend systems.",
     path: "/about",
     image: settings.aboutImageUrl,
   });

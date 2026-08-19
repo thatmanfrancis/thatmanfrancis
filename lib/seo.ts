@@ -14,9 +14,13 @@ export const PERSON_NAME = "Francis Kossyrisochukwu Uzoigwe";
 
 export const PERSON_ALTERNATE_NAMES = [
   "thatmanfrancis",
+  "thatmanfrancis.com",
   "Francis Uzoigwe",
   "Francis",
   "Francis K. Uzoigwe",
+  "Francis Kossyrisochukwu",
+  "Kossyrisochukwu Uzoigwe",
+  "Francis Kossyrisochukwu Uzoigwe",
 ] as const;
 
 export const DEFAULT_META_DESCRIPTION =
@@ -25,14 +29,31 @@ export const DEFAULT_META_DESCRIPTION =
 export const SEO_KEYWORDS = [
   "Francis Kossyrisochukwu Uzoigwe",
   "Francis Uzoigwe",
+  "Francis Kossyrisochukwu",
+  "Francis K. Uzoigwe",
+  "Uzoigwe Francis",
   "Kossyrisochukwu",
   "thatmanfrancis",
+  "thatmanfrancis portfolio",
+  "Francis full stack developer",
+  "full stack engineer Nigeria",
   "full-stack developer Lagos",
+  "full stack developer",
+  "full stack engineer",
   "software engineer Lagos",
+  "software engineer Nigeria",
   "web developer Lagos Nigeria",
   "Next.js developer Lagos",
+  "Next.js developer Nigeria",
   "TypeScript developer Nigeria",
+  "React developer Nigeria",
+  "Node.js developer Nigeria",
+  "Prisma developer",
+  "backend developer Nigeria",
+  "frontend developer Nigeria",
   "React engineer Lagos",
+  "portfolio website",
+  "developer portfolio",
   "portfolio",
 ] as const;
 
@@ -111,6 +132,22 @@ export function publicPageMetadata({
   };
 }
 
+export function breadcrumbJsonLd(
+  items: Array<{ name: string; path: string }>,
+  origin = getSiteOrigin(),
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: siteUrl(item.path, origin),
+    })),
+  };
+}
+
 export function websiteJsonLd(
   settings: SiteSettings,
   origin = getSiteOrigin(),
@@ -138,6 +175,9 @@ export function websiteJsonLd(
         "@type": "Person",
         "@id": `${origin}/#person`,
         name: PERSON_NAME,
+        givenName: "Francis",
+        familyName: "Uzoigwe",
+        additionalName: "Kossyrisochukwu",
         alternateName: [...PERSON_ALTERNATE_NAMES],
         url: origin,
         jobTitle: settings.heroRole ?? "Full-stack engineer",
@@ -155,6 +195,7 @@ export function websiteJsonLd(
           },
         },
         knowsAbout: siteKeywords(settings.skills),
+        knowsLanguage: ["en"],
         sameAs: socials.length > 0 ? socials : undefined,
       },
     ],

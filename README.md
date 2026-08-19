@@ -36,7 +36,7 @@ Brand is light-mode only: black / gray / white, Space Grotesk, FKU monoline mark
 
 ```bash
 npm install
-cp .env.example .env   # if you keep an example; otherwise create .env
+cp .env.example .env   # fill in values
 npx prisma migrate deploy
 npm run db:seed        # or open /admin/seed while signed in locally
 npm run dev
@@ -50,6 +50,7 @@ npm run build
 npm start
 ```
 
+**VPS (Nginx + PM2):** see [DEPLOY.md](./DEPLOY.md). Env shape for production: [.env.example](./.env.example).
 ---
 
 ## Environment

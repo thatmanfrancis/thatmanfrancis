@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import type { SiteSettings } from "@/lib/generated/prisma";
 import { updateSettingsAction } from "@/app/admin/actions";
 import { ImageUploadField } from "@/components/admin/image-upload-field";
@@ -16,38 +19,87 @@ type SettingsFormProps = {
   settings: SiteSettings;
 };
 
-function blockSlots(value: unknown, count: number, fallback: CopyBlock[]) {
-  const current = asCopyBlocks(value, fallback);
-  return Array.from(
-    { length: count },
-    (_, index) => current[index] ?? { title: "", body: "" },
+const emptyBlock: CopyBlock = { title: "", body: "" };
+
+const emptyExperience: ExperienceEntry = {
+  years: "",
+  title: "",
+  org: "",
+  location: "",
+  nature: "",
+  body: "",
+  bullets: [],
+};
+
+function AddButton({ onClick, label }: { onClick: () => void; label: string }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="inline-flex items-center gap-1.5 rounded-lg border border-dashed border-border px-3 py-2 text-sm font-medium text-ink-muted transition-colors hover:border-accent hover:text-accent"
+    >
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      >
+        <line x1="8" y1="3" x2="8" y2="13" />
+        <line x1="3" y1="8" x2="13" y2="8" />
+      </svg>
+      {label}
+    </button>
   );
 }
 
-function experienceSlots(
-  value: unknown,
-  count: number,
-  fallback: ExperienceEntry[],
-) {
-  const current = asExperienceEntries(value, fallback);
-  return Array.from({ length: count }, (_, index) =>
-    current[index] ?? {
-      years: "",
-      title: "",
-      org: "",
-      location: "",
-      nature: "",
-      body: "",
-      bullets: [],
-    },
+function RemoveButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="ml-auto inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium text-ink-muted transition-colors hover:bg-red-500/10 hover:text-red-500"
+    >
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 16 16"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      >
+        <line x1="4" y1="4" x2="12" y2="12" />
+        <line x1="12" y1="4" x2="4" y2="12" />
+      </svg>
+      Remove
+    </button>
   );
 }
 
 export function SettingsForm({ settings }: SettingsFormProps) {
-  const disciplines = blockSlots(settings.disciplines, 5, defaultDisciplines);
-  const processSteps = blockSlots(settings.processSteps, 3, defaultProcessSteps);
-  const experience = experienceSlots(settings.experience, 6, defaultExperience);
-  const faqs = blockSlots(settings.faq, 6, defaultFaqs);
+  const [disciplines, setDisciplines] = useState<CopyBlock[]>(() => {
+    const current = asCopyBlocks(settings.disciplines, defaultDisciplines);
+    return current.length > 0 ? current : [{ ...emptyBlock }];
+  });
+
+  const [processSteps, setProcessSteps] = useState<CopyBlock[]>(() => {
+    const current = asCopyBlocks(settings.processSteps, defaultProcessSteps);
+    return current.length > 0 ? current : [{ ...emptyBlock }];
+  });
+
+  const [experience, setExperience] = useState<ExperienceEntry[]>(() => {
+    const current = asExperienceEntries(settings.experience, defaultExperience);
+    return current.length > 0 ? current : [{ ...emptyExperience }];
+  });
+
+  const [faqs, setFaqs] = useState<CopyBlock[]>(() => {
+    const current = asCopyBlocks(settings.faq, defaultFaqs);
+    return current.length > 0 ? current : [{ ...emptyBlock }];
+  });
+
   return (
     <form action={updateSettingsAction} className="space-y-8">
       <section className="card-surface space-y-5 p-6 sm:p-8">
@@ -270,6 +322,7 @@ export function SettingsForm({ settings }: SettingsFormProps) {
         </div>
       </section>
 
+      {/* ── Disciplines (dynamic) ── */}
       <section className="card-surface space-y-5 p-6 sm:p-8">
         <div>
           <p className="section-label mb-2 text-sm">Practice</p>
@@ -302,40 +355,60 @@ export function SettingsForm({ settings }: SettingsFormProps) {
             className="field-input"
           />
         </div>
+        <input type="hidden" name="disciplineCount" value={disciplines.length} />
         {disciplines.map((item, index) => (
-          <div key={`discipline-${index}`} className="grid gap-4 sm:grid-cols-2">
-            <div>
-              <label
-                htmlFor={`disciplineTitle${index + 1}`}
-                className="field-label"
-              >
-                Discipline {index + 1} title
-              </label>
-              <input
-                id={`disciplineTitle${index + 1}`}
-                name={`disciplineTitle${index + 1}`}
-                defaultValue={item.title}
-                className="field-input"
-              />
+          <div key={`discipline-${index}`} className="space-y-2">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-semibold uppercase tracking-wider text-ink-muted">
+                Discipline {index + 1}
+              </span>
+              {disciplines.length > 1 && (
+                <RemoveButton
+                  onClick={() =>
+                    setDisciplines((prev) => prev.filter((_, i) => i !== index))
+                  }
+                />
+              )}
             </div>
-            <div>
-              <label
-                htmlFor={`disciplineBody${index + 1}`}
-                className="field-label"
-              >
-                Discipline {index + 1} description
-              </label>
-              <input
-                id={`disciplineBody${index + 1}`}
-                name={`disciplineBody${index + 1}`}
-                defaultValue={item.body}
-                className="field-input"
-              />
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label
+                  htmlFor={`disciplineTitle${index + 1}`}
+                  className="field-label"
+                >
+                  Title
+                </label>
+                <input
+                  id={`disciplineTitle${index + 1}`}
+                  name={`disciplineTitle${index + 1}`}
+                  defaultValue={item.title}
+                  className="field-input"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor={`disciplineBody${index + 1}`}
+                  className="field-label"
+                >
+                  Description
+                </label>
+                <input
+                  id={`disciplineBody${index + 1}`}
+                  name={`disciplineBody${index + 1}`}
+                  defaultValue={item.body}
+                  className="field-input"
+                />
+              </div>
             </div>
           </div>
         ))}
+        <AddButton
+          label="Add discipline"
+          onClick={() => setDisciplines((prev) => [...prev, { ...emptyBlock }])}
+        />
       </section>
 
+      {/* ── Experience / Career timeline (dynamic) ── */}
       <section className="card-surface space-y-5 p-6 sm:p-8">
         <div>
           <p className="section-label mb-2 text-sm">Resume</p>
@@ -369,11 +442,24 @@ export function SettingsForm({ settings }: SettingsFormProps) {
             className="field-input"
           />
         </div>
+        <input type="hidden" name="experienceCount" value={experience.length} />
         {experience.map((item, index) => (
           <div
             key={`experience-${index}`}
             className="space-y-3 border-t border-border pt-5 first:border-t-0 first:pt-0"
           >
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-semibold uppercase tracking-wider text-ink-muted">
+                Role {index + 1}
+              </span>
+              {experience.length > 1 && (
+                <RemoveButton
+                  onClick={() =>
+                    setExperience((prev) => prev.filter((_, i) => i !== index))
+                  }
+                />
+              )}
+            </div>
             <div className="grid gap-4 sm:grid-cols-3">
               <div>
                 <label
@@ -493,8 +579,15 @@ export function SettingsForm({ settings }: SettingsFormProps) {
             </div>
           </div>
         ))}
+        <AddButton
+          label="Add role"
+          onClick={() =>
+            setExperience((prev) => [...prev, { ...emptyExperience, bullets: [] }])
+          }
+        />
       </section>
 
+      {/* ── Process steps (dynamic) ── */}
       <section className="card-surface space-y-5 p-6 sm:p-8">
         <div>
           <p className="section-label mb-2 text-sm">Process</p>
@@ -527,10 +620,23 @@ export function SettingsForm({ settings }: SettingsFormProps) {
             />
           </div>
         </div>
+        <input type="hidden" name="processCount" value={processSteps.length} />
         {processSteps.map((item, index) => (
           <div key={`process-${index}`} className="space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-semibold uppercase tracking-wider text-ink-muted">
+                Step {index + 1}
+              </span>
+              {processSteps.length > 1 && (
+                <RemoveButton
+                  onClick={() =>
+                    setProcessSteps((prev) => prev.filter((_, i) => i !== index))
+                  }
+                />
+              )}
+            </div>
             <label htmlFor={`processTitle${index + 1}`} className="field-label">
-              Step {index + 1} title
+              Title
             </label>
             <input
               id={`processTitle${index + 1}`}
@@ -539,7 +645,7 @@ export function SettingsForm({ settings }: SettingsFormProps) {
               className="field-input"
             />
             <label htmlFor={`processBody${index + 1}`} className="field-label">
-              Step {index + 1} description
+              Description
             </label>
             <textarea
               id={`processBody${index + 1}`}
@@ -550,8 +656,13 @@ export function SettingsForm({ settings }: SettingsFormProps) {
             />
           </div>
         ))}
+        <AddButton
+          label="Add step"
+          onClick={() => setProcessSteps((prev) => [...prev, { ...emptyBlock }])}
+        />
       </section>
 
+      {/* ── FAQs (dynamic) ── */}
       <section className="card-surface space-y-5 p-6 sm:p-8">
         <div>
           <p className="section-label mb-2 text-sm">FAQ</p>
@@ -583,10 +694,23 @@ export function SettingsForm({ settings }: SettingsFormProps) {
             className="field-input"
           />
         </div>
+        <input type="hidden" name="faqCount" value={faqs.length} />
         {faqs.map((item, index) => (
           <div key={`faq-${index}`} className="space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-semibold uppercase tracking-wider text-ink-muted">
+                Question {index + 1}
+              </span>
+              {faqs.length > 1 && (
+                <RemoveButton
+                  onClick={() =>
+                    setFaqs((prev) => prev.filter((_, i) => i !== index))
+                  }
+                />
+              )}
+            </div>
             <label htmlFor={`faqTitle${index + 1}`} className="field-label">
-              Question {index + 1}
+              Question
             </label>
             <input
               id={`faqTitle${index + 1}`}
@@ -595,7 +719,7 @@ export function SettingsForm({ settings }: SettingsFormProps) {
               className="field-input"
             />
             <label htmlFor={`faqBody${index + 1}`} className="field-label">
-              Answer {index + 1}
+              Answer
             </label>
             <textarea
               id={`faqBody${index + 1}`}
@@ -606,6 +730,10 @@ export function SettingsForm({ settings }: SettingsFormProps) {
             />
           </div>
         ))}
+        <AddButton
+          label="Add question"
+          onClick={() => setFaqs((prev) => [...prev, { ...emptyBlock }])}
+        />
       </section>
 
       <section className="card-surface space-y-5 p-6 sm:p-8">
@@ -735,6 +863,19 @@ export function SettingsForm({ settings }: SettingsFormProps) {
               type="url"
               placeholder="https://facebook.com/you"
               defaultValue={settings.socialFacebook ?? ""}
+              className="field-input"
+            />
+          </div>
+          <div>
+            <label htmlFor="socialWhatsapp" className="field-label">
+              WhatsApp
+            </label>
+            <input
+              id="socialWhatsapp"
+              name="socialWhatsapp"
+              type="url"
+              placeholder="https://wa.me/234xxxxxxxxxx"
+              defaultValue={settings.socialWhatsapp ?? ""}
               className="field-input"
             />
           </div>

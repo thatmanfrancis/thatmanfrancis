@@ -24,7 +24,10 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     ...publicPageMetadata({
       title: settings.heroTitle ?? settings.siteName,
-      description: settings.metaDescription ?? settings.heroLede,
+      description:
+        settings.metaDescription ??
+        settings.heroLede ??
+        "Francis Kossyrisochukwu Uzoigwe (thatmanfrancis) is a full-stack engineer building web products with Next.js, TypeScript, React, and scalable backend systems.",
       path: "/",
     }),
     title: { absolute: settings.siteName },

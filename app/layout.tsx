@@ -26,6 +26,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const origin = getSiteOrigin();
   const description = metaDescription(settings.metaDescription);
   const keywords = siteKeywords(settings.skills);
+  const ogImage = settings.aboutImageUrl ?? "/brand/fk-lockup.png";
+  const googleSiteVerification =
+    process.env.GOOGLE_SITE_VERIFICATION?.trim() || undefined;
 
   return {
     metadataBase: new URL(origin),
@@ -39,6 +42,16 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: PERSON_NAME,
     publisher: PERSON_NAME,
     keywords,
+    category: "technology",
+    classification: "Personal portfolio",
+    formatDetection: {
+      email: true,
+      address: true,
+      telephone: true,
+    },
+    verification: {
+      google: googleSiteVerification,
+    },
     robots: { index: true, follow: true },
     alternates: {
       canonical: "/",
@@ -52,12 +65,19 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: settings.siteName,
       title: `${settings.siteName} — ${PERSON_NAME}`,
       description,
+      images: [{ url: ogImage }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${settings.siteName} — ${PERSON_NAME}`,
       description,
       creator: twitterHandle(settings.socialX),
+      images: [ogImage],
+    },
+    icons: {
+      icon: "/brand/fk-mark.png",
+      shortcut: "/brand/fk-mark.png",
+      apple: "/brand/fk-mark.png",
     },
   };
 }

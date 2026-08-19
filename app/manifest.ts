@@ -17,13 +17,13 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
     background_color: "#ffffff",
     icons: [
       {
-        src: "/icon",
-        sizes: "64x64",
+        src: "/brand/fk-mark.png",
+        sizes: "512x512",
         type: "image/png",
       },
       {
-        src: "/apple-icon",
-        sizes: "180x180",
+        src: "/brand/fk-mark.png",
+        sizes: "512x512",
         type: "image/png",
       },
       {

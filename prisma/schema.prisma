@@ -63,6 +63,7 @@ model SiteSettings {
   socialInstagram     String?
   socialYoutube       String?
   socialFacebook      String?
+  socialWhatsapp      String?
   socialDiscord       String?
   socialBluesky       String?
   socialMastodon      String?

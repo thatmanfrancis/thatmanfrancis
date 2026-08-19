@@ -8,7 +8,12 @@ import { ApiResponsePanel } from "@/components/work/api-response-panel";
 import { coverSrc } from "@/lib/placeholders";
 import { kindLabel } from "@/lib/project";
 import { prisma } from "@/lib/prisma";
-import { publicPageMetadata, projectJsonLd, getSiteOrigin } from "@/lib/seo";
+import {
+  breadcrumbJsonLd,
+  publicPageMetadata,
+  projectJsonLd,
+  getSiteOrigin,
+} from "@/lib/seo";
 import { getSettings } from "@/lib/settings";
 import { JsonLd } from "@/components/seo/json-ld";
 
@@ -73,6 +78,16 @@ export default async function ProjectDetailPage({ params }: Props) {
 
   return (
     <article className="py-14 sm:py-20">
+      <JsonLd
+        data={breadcrumbJsonLd(
+          [
+            { name: "Home", path: "/" },
+            { name: "Work", path: "/work" },
+            { name: project.title, path: `/work/${project.slug}` },
+          ],
+          origin,
+        )}
+      />
       <JsonLd
         data={projectJsonLd({
           title: project.title,

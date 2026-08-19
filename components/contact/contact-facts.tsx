@@ -16,6 +16,7 @@ import {
   MastodonIcon,
   PhoneIcon,
   StackOverflowIcon,
+  WhatsappIcon,
   XSocialIcon,
   YoutubeIcon,
 } from "@/components/ui/icons";
@@ -31,6 +32,7 @@ const socialIconMap: Record<
   instagram: InstagramIcon,
   youtube: YoutubeIcon,
   facebook: FacebookIcon,
+  whatsapp: WhatsappIcon,
   discord: DiscordIcon,
   bluesky: BlueskyIcon,
   mastodon: MastodonIcon,

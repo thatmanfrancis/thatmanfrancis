@@ -10,6 +10,7 @@ import { coverSrc } from "@/lib/placeholders";
 import { prisma } from "@/lib/prisma";
 import { getSettings } from "@/lib/settings";
 import {
+  breadcrumbJsonLd,
   getSiteOrigin,
   postJsonLd,
   publicPageMetadata,
@@ -67,6 +68,16 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <article className="py-14 sm:py-20">
+      <JsonLd
+        data={breadcrumbJsonLd(
+          [
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: post.title, path: `/blog/${post.slug}` },
+          ],
+          origin,
+        )}
+      />
       <JsonLd
         data={postJsonLd({
           title: post.title,

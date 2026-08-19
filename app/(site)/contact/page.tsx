@@ -16,7 +16,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSettings();
   return publicPageMetadata({
     title: "Contact",
-    description: settings.contactLede ?? settings.metaDescription,
+    description:
+      settings.contactLede ??
+      "Contact Francis Uzoigwe (thatmanfrancis) for full-stack web development, product engineering, and collaboration on Next.js and TypeScript projects.",
     path: "/contact",
   });
 }

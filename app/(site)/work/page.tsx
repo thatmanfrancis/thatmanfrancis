@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/json-ld";
 import { ExperienceTimeline } from "@/components/work/experience-timeline";
 import { ProjectRow } from "@/components/work/project-row";
 import { asExperienceEntries, defaultExperience } from "@/lib/copy-blocks";
 import { prisma } from "@/lib/prisma";
-import { publicPageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, getSiteOrigin, publicPageMetadata } from "@/lib/seo";
 import { getSettings } from "@/lib/settings";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = publicPageMetadata({
   title: "Work",
-  description: "Selected projects and career timeline by thatmanfrancis.",
+  description:
+    "Selected full-stack projects and engineering case studies by Francis Uzoigwe (thatmanfrancis), covering Next.js, TypeScript, backend systems, and product delivery.",
   path: "/work",
 });
 
@@ -28,9 +30,19 @@ async function getProjects() {
 export default async function WorkPage() {
   const [projects, settings] = await Promise.all([getProjects(), getSettings()]);
   const experience = asExperienceEntries(settings.experience, defaultExperience);
+  const origin = getSiteOrigin();
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd(
+          [
+            { name: "Home", path: "/" },
+            { name: "Work", path: "/work" },
+          ],
+          origin,
+        )}
+      />
       <section className="border-b border-border bg-surface py-14 sm:py-16">
         <div className="container-page">
           <p className="section-label mb-3">Work</p>

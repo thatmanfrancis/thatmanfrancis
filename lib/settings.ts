@@ -18,6 +18,7 @@ export type SocialIconKey =
   | "instagram"
   | "youtube"
   | "facebook"
+  | "whatsapp"
   | "discord"
   | "bluesky"
   | "mastodon"
@@ -87,6 +88,7 @@ export const defaultSettings: Omit<SiteSettings, "updatedAt"> = {
   socialInstagram: null,
   socialYoutube: null,
   socialFacebook: null,
+  socialWhatsapp: null,
   socialDiscord: null,
   socialBluesky: null,
   socialMastodon: null,
@@ -161,6 +163,7 @@ export function socialLinks(settings: SiteSettings): SocialLink[] {
     { label: "Instagram", href: settings.socialInstagram, icon: "instagram" },
     { label: "YouTube", href: settings.socialYoutube, icon: "youtube" },
     { label: "Facebook", href: settings.socialFacebook, icon: "facebook" },
+    { label: "WhatsApp", href: settings.socialWhatsapp, icon: "whatsapp" },
     { label: "Discord", href: settings.socialDiscord, icon: "discord" },
     { label: "Bluesky", href: settings.socialBluesky, icon: "bluesky" },
     { label: "Mastodon", href: settings.socialMastodon, icon: "mastodon" },
