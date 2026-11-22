@@ -1,6 +1,8 @@
 <div align="center">
 
-<img src="francis-banner.png" width="100%" alt="Francis Uzoigwe — Senior Full Stack Software Engineer. Engineering reliable digital products." />
+<br />
+
+<img src="francis-banner.webp" width="100%" alt="Francis Uzoigwe — Senior Full Stack Software Engineer. Engineering reliable digital products." />
 
 [Portfolio](https://francisuzoigwe.me) &nbsp; · &nbsp; [LinkedIn](https://www.linkedin.com/in/francisuzoigwe) &nbsp; · &nbsp; [Email](mailto:francis@syntiqhq.com)
 
@@ -14,11 +16,9 @@ I work across **TypeScript, React, Next.js, Node.js, PHP and Laravel**, from the
 
 ## Engineering in practice
 
-| Focus | Selected work |
-| :--- | :--- |
-| **Payment reliability** | At **OuroPay**, implemented transfer idempotency and balance checks, clarified pending versus failed payment statuses, and supported a backend operating at approximately **900,000 transfers in a single month**. |
-| **Engineering leadership** | At **LemonWares**, led frontend architecture across **14 client projects** and mentored **four developers**. Introduced TypeScript strict mode, review checklists, automated testing and deployment pipelines. |
-| **Retail operations** | At **SalesDock**, connected point-of-sale checkout, online storefronts and shared inventory, with audit trails for sales, discounts and refunds. |
+- **Payment reliability:** At **OuroPay**, implemented transfer idempotency and balance checks, clarified pending versus failed payment statuses, and supported a backend operating at approximately **900,000 transfers in a single month**.
+- **Engineering leadership:** At **LemonWares**, led frontend architecture across **14 client projects** and mentored **four developers**. Introduced TypeScript strict mode, review checklists, automated testing and deployment pipelines.
+- **Retail operations:** At **SalesDock**, connected point-of-sale checkout, online storefronts and shared inventory, with audit trails for sales, discounts and refunds.
 
 ## Selected work
 
@@ -50,12 +50,21 @@ A real estate platform covering property listings, tenant management, maintenanc
 
 ## Toolkit
 
-| Area | Technologies |
-| :--- | :--- |
-| **Languages & application frameworks** | TypeScript, JavaScript, React, Next.js, Node.js, Express, PHP, Laravel |
-| **Data & integrations** | PostgreSQL, MySQL, MongoDB, Redis, Prisma, SQL, REST APIs, GraphQL, Stripe, bank integrations |
-| **Delivery & operations** | Git, GitHub Actions, CI/CD, automated testing, AWS, Terraform, Docker, Linux, Nginx, PM2, Sentry |
-| **Access & security** | Role-based access control |
+<p>
+  <img src="assets/technologies/typescript.svg" alt="TypeScript" title="TypeScript" width="36" height="36" /> &nbsp;
+  <img src="assets/technologies/javascript.svg" alt="JavaScript" title="JavaScript" width="36" height="36" /> &nbsp;
+  <img src="assets/technologies/react.svg" alt="React" title="React" width="36" height="36" /> &nbsp;
+  <img src="assets/technologies/nodejs.svg" alt="Node.js" title="Node.js" width="36" height="36" /> &nbsp;
+  <img src="assets/technologies/php.svg" alt="PHP" title="PHP" width="36" height="36" /> &nbsp;
+  <img src="assets/technologies/laravel.svg" alt="Laravel" title="Laravel" width="36" height="36" /> &nbsp;
+  <img src="assets/technologies/postgresql.svg" alt="PostgreSQL" title="PostgreSQL" width="36" height="36" /> &nbsp;
+  <img src="assets/technologies/docker.svg" alt="Docker" title="Docker" width="36" height="36" /> &nbsp;
+</p>
+
+- **Languages & application frameworks:** TypeScript, JavaScript, React, Next.js, Node.js, Express, PHP, Laravel
+- **Data & integrations:** PostgreSQL, MySQL, MongoDB, Redis, Prisma, SQL, REST APIs, GraphQL, Stripe, bank integrations
+- **Delivery & operations:** Git, GitHub Actions, CI/CD, automated testing, AWS, Terraform, Docker, Linux, Nginx, PM2, Sentry
+- **Access & security:** Role-based access control
 
 I choose tools around the problem and I'm open to learning new languages and frameworks when the work calls for them.
 
