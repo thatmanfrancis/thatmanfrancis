@@ -4,7 +4,11 @@
 
 <img src="francis-banner.webp" width="100%" alt="Francis Uzoigwe — Senior Full Stack Software Engineer. Engineering reliable digital products." />
 
-[Portfolio](https://francisuzoigwe.me) &nbsp; · &nbsp; [LinkedIn](https://www.linkedin.com/in/francisuzoigwe) &nbsp; · &nbsp; [Email](mailto:francis@syntiqhq.com)
+[![Portfolio](https://img.shields.io/badge/Portfolio-111827?style=flat-square)](https://francisuzoigwe.me)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square)](https://www.linkedin.com/in/francisuzoigwe)
+[![Email](https://img.shields.io/badge/Email-111827?style=flat-square)](mailto:francis@syntiqhq.com)
+
+[Portfolio](https://francisuzoigwe.me) · [LinkedIn](https://www.linkedin.com/in/francisuzoigwe) · [Email](mailto:francis@syntiqhq.com)
 
 </div>
 
@@ -51,14 +55,7 @@ A real estate platform covering property listings, tenant management, maintenanc
 ## Toolkit
 
 <p>
-  <img src="assets/technologies/typescript.svg" alt="TypeScript" title="TypeScript" width="36" height="36" /> &nbsp;
-  <img src="assets/technologies/javascript.svg" alt="JavaScript" title="JavaScript" width="36" height="36" /> &nbsp;
-  <img src="assets/technologies/react.svg" alt="React" title="React" width="36" height="36" /> &nbsp;
-  <img src="assets/technologies/nodejs.svg" alt="Node.js" title="Node.js" width="36" height="36" /> &nbsp;
-  <img src="assets/technologies/php.svg" alt="PHP" title="PHP" width="36" height="36" /> &nbsp;
-  <img src="assets/technologies/laravel.svg" alt="Laravel" title="Laravel" width="36" height="36" /> &nbsp;
-  <img src="assets/technologies/postgresql.svg" alt="PostgreSQL" title="PostgreSQL" width="36" height="36" /> &nbsp;
-  <img src="assets/technologies/docker.svg" alt="Docker" title="Docker" width="36" height="36" /> &nbsp;
+  <img src="https://skillicons.dev/icons?i=ts,js,react,nextjs,nodejs,express,php,laravel,postgres,docker&amp;theme=light&amp;perline=10" alt="TypeScript, JavaScript, React, Next.js, Node.js, Express, PHP, Laravel, PostgreSQL and Docker" width="500" />
 </p>
 
 - **Languages & application frameworks:** TypeScript, JavaScript, React, Next.js, Node.js, Express, PHP, Laravel
