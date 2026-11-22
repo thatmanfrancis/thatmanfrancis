@@ -1,127 +1,48 @@
-# thatmanfrancis
+# Francis Uzoigwe
 
-Personal site for **Francis Kossyrisochukwu Uzoigwe** — portfolio, writing, and a small admin so the public pages stay current without a redeploy for every sentence.
+### Senior Full Stack Software Engineer
 
-Live home for selected work, a career timeline, notes on shipping, and a way to get in touch.
+I build payment systems and web products with TypeScript, React, Next.js, Node.js, PHP and Laravel. Based in Lagos, Nigeria, I bring 5+ years of experience across backend engineering, frontend architecture and production delivery.
 
----
+My work includes transfer safeguards, payment integrations, access control, commerce platforms and automated deployments. I care about clear APIs, reliable transactions and software that makes everyday work easier.
 
-## What’s here
+[Portfolio](https://francisuzoigwe.me) · [LinkedIn](https://www.linkedin.com/in/francisuzoigwe) · [Email](mailto:francis@syntiqhq.com)
 
-- **Public site** — Home, Work (career + case studies), Blog, About, Contact, FAQ
-- **Admin CMS** — Projects, posts, messages, newsletter, site settings
-- **Career timeline** — Years, role, company, place, job nature, bullets — editable from settings
-- **Newsletter** — Subscriber list + campaign composer (ZeptoMail)
-- **Contact inbox** — Form intake with optional Turnstile + rate limits
-- **SEO** — Metadata, sitemap, RSS, JSON-LD, Open Graph
+## Experience highlights
 
-Brand is light-mode only: black / gray / white, Space Grotesk, FKU monoline mark.
+- **Payment reliability at OuroPay:** Implemented idempotency and pre-transfer balance checks, clarified payment statuses and addressed transfer errors. Supported the backend on a platform that processed approximately **900,000 transfers in one month**.
+- **Engineering leadership at LemonWares:** Led frontend architecture across **14 client projects**, mentored **four developers** and introduced GitHub Actions pipelines that brought automated deployments to **under three minutes**.
+- **Commerce at SalesDock:** Connected point-of-sale checkout, online storefronts and shared inventory, with audit trails for sales, discounts and refunds.
+- **Payments at Evalocal:** Integrated Stripe for deposits, milestone payouts and billing notifications, alongside permissions for customers, vendors and moderators.
+- **Learning platforms at Aakkio:** Delivered a multi-tenant application with recurring billing, role-based access, progress tracking and instructor analytics.
 
----
+## Selected public projects
 
-## Stack
+### [Hausevo](https://github.com/thatmanfrancis/Hausevo)
 
-| Layer | Choice |
+A real estate and tenancy management platform for Nigeria, covering property discovery, tenant and landlord workflows, payments, maintenance and administration.
+
+### [Evalocal](https://github.com/thatmanfrancis/Evalocal)
+
+A UK events marketplace connecting customers and vendors. My contributions included Stripe integration, booking workflows and access controls. This repository is a fork of the LemonWares project.
+
+### [Aakkio](https://github.com/thatmanfrancis/Aakkio)
+
+A learning platform for students, instructors and organisations. My work included multi-tenant workflows, recurring billing, Node.js APIs and rendering performance improvements.
+
+## Technologies
+
+| Area | Tools |
 | --- | --- |
-| App | Next.js 16 (App Router), React 19 |
-| Style | Tailwind CSS 4 |
-| Data | PostgreSQL + Prisma 7 (`@prisma/adapter-pg`) |
-| Auth | Cookie session (`jose` + `bcryptjs`) |
-| Media | Local uploads + Sharp resize via `/img` |
-| Email | ZeptoMail (optional) |
+| Frontend | TypeScript, JavaScript, React, Next.js |
+| Backend | Node.js, Express, PHP, Laravel, REST APIs, GraphQL |
+| Data | PostgreSQL, MySQL, MongoDB, Redis, Prisma |
+| Payments & access | Bank integrations, Stripe, role-based access control |
+| Delivery & operations | GitHub Actions, Docker, AWS, Terraform, Linux, Nginx, PM2, Sentry |
+| Quality | Automated testing, code reviews, web performance optimisation |
 
----
+## Let's connect
 
-## Quick start
+Open to conversations about full-stack and backend engineering roles. I enjoy solving product problems, collaborating with other engineers and learning new languages when the work calls for them.
 
-```bash
-npm install
-cp .env.example .env   # fill in values
-npx prisma migrate deploy
-npm run db:seed        # or open /admin/seed while signed in locally
-npm run dev
-```
-
-- Site: [http://localhost:3000](http://localhost:3000)
-- Admin: [http://localhost:3000/admin](http://localhost:3000/admin)
-
-```bash
-npm run build
-npm start
-```
-
-**VPS (Nginx + PM2):** see [DEPLOY.md](./DEPLOY.md). Env shape for production: [.env.example](./.env.example).
----
-
-## Environment
-
-Required for a real run:
-
-| Variable | Purpose |
-| --- | --- |
-| `DATABASE_URL` | PostgreSQL connection string |
-| `AUTH_SECRET` | Session signing secret |
-| `NEXT_PUBLIC_SITE_URL` | Public origin (e.g. `https://yourdomain.com`) |
-| `ADMIN_EMAIL` | Admin login email (seed) |
-| `ADMIN_PASSWORD` | Admin login password (seed) |
-
-Useful optional vars:
-
-| Variable | Purpose |
-| --- | --- |
-| `ADMIN_NAME` | Display name used in seed / mail from-name fallback |
-| `SEED_SECRET` | Required to hit `/api/admin/seed` in production |
-| `SEED_RESET_ADMIN_PASSWORD` | Set `1` to reset admin password on seed re-run |
-| `ZEPTOMAIL_TOKEN` | ZeptoMail API token |
-| `ZEPTOMAIL_FROM_EMAIL` | From address |
-| `ZEPTOMAIL_FROM_NAME` | From name |
-| `ZEPTOMAIL_REPLY_TO` | Reply-to |
-| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Cloudflare Turnstile (public) |
-| `TURNSTILE_SECRET` | Turnstile secret |
-| `TURNSTILE_HOSTNAMES` | Allowed hosts (default `localhost,127.0.0.1`) |
-
-Never commit `.env`. Production needs a real `NEXT_PUBLIC_SITE_URL` so email logos, sitemap, and canonical URLs resolve correctly.
-
----
-
-## Admin map
-
-| Path | What it does |
-| --- | --- |
-| `/admin` | Dashboard |
-| `/admin/projects` | Case studies |
-| `/admin/posts` | Blog |
-| `/admin/messages` | Contact inbox |
-| `/admin/newsletter` | Campaigns + audience |
-| `/admin/settings` | Copy, socials, career, FAQ, contact |
-| `/admin/seed` | Bootstrap sample content (local / secret-gated) |
-
----
-
-## Scripts
-
-```bash
-npm run dev          # development
-npm run build        # prisma generate + next build
-npm start            # production server
-npm run db:migrate   # prisma migrate dev
-npm run db:seed      # seed admin + sample content
-npm run db:studio    # Prisma Studio
-```
-
----
-
-## Notes
-
-- Light mode is forced on purpose — no OS dark-mode flip.
-- Seed is safe to re-run for missing samples; it won’t wipe settings you’ve already edited.
-- In production, protect seed with `SEED_SECRET`.
-
----
-
-## Author
-
-**Francis Kossyrisochukwu Uzoigwe** · Lagos, Nigeria  
-`thatmanfrancis`
-
-Built to be lived in — ship the site, then keep the story current from admin.
+Reach me at **[francis@syntiqhq.com](mailto:francis@syntiqhq.com)**.
