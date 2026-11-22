@@ -1,48 +1,55 @@
-# Francis Uzoigwe
+<div align="center"><img src="https://github.com/thatmanfrancis.png?size=280" width="140" height="140" alt="Francis Uzoigwe" />Hi, I'm Francis Uzoigwe.
+Senior Full Stack Software Engineer
+Payments · Web products · Engineering leadership
 
-### Senior Full Stack Software Engineer
+Based in Lagos, Nigeria. Building for people and businesses across borders.
 
-I build payment systems and web products with TypeScript, React, Next.js, Node.js, PHP and Laravel. Based in Lagos, Nigeria, I bring 5+ years of experience across backend engineering, frontend architecture and production delivery.
+<a href="https://francisuzoigwe.me"><img src="https://img.shields.io/badge/Portfolio-111827?style=for-the-badge" alt="Visit my portfolio" /></a>
+<a href="https://www.linkedin.com/in/francisuzoigwe"><img src="https://img.shields.io/badge/LinkedIn-2563EB?style=for-the-badge" alt="Connect on LinkedIn" /></a>
+<a href="mailto:francis@syntiqhq.com"><img src="https://img.shields.io/badge/Email-111827?style=for-the-badge" alt="Email Francis" /></a>
+</div>What I bring
+I'm a software engineer with 5+ years of experience building payment systems, marketplaces and business applications. I work across TypeScript, React, Next.js, Node.js, PHP and Laravel, from the customer interface to APIs, databases and production delivery.
 
-My work includes transfer safeguards, payment integrations, access control, commerce platforms and automated deployments. I care about clear APIs, reliable transactions and software that makes everyday work easier.
+I like the problems behind the feature: a payment being processed twice, stock getting out of sync, or a release taking too much manual effort. My work focuses on understanding those problems and building software that makes the outcome more reliable.
+<table>
+  <tr>
+    <td align="center" width="33%"><h3>900,000</h3>Transfers processed in one month<br /><sub>Platform scale at OuroPay</sub></td>
+    <td align="center" width="33%"><h3>14 projects</h3>Frontend architecture leadership<br /><sub>LemonWares Technology</sub></td>
+    <td align="center" width="33%"><h3>Under 3 minutes</h3>Automated deployments<br /><sub>GitHub Actions CI/CD</sub></td>
+  </tr>
+</table>Engineering in practice
+- Payment reliability — OuroPay: Implemented transfer idempotency and balance checks, clarified pending versus failed payment statuses, and supported a backend operating at approximately 900,000 transfers in a single month.
+- Team delivery — LemonWares: Led frontend architecture across 14 client projects and mentored four developers. Introduced TypeScript strict mode, review checklists, automated testing and deployment pipelines.
+- Retail operations — SalesDock: Connected point-of-sale checkout, online storefronts and shared inventory, with audit trails for sales, discounts and refunds.
+Explore my work
+Evalocal ↗
+UK events marketplace · Payments and booking workflows
 
-[Portfolio](https://francisuzoigwe.me) · [LinkedIn](https://www.linkedin.com/in/francisuzoigwe) · [Email](mailto:francis@syntiqhq.com)
+Integrated Stripe for deposits, milestone payouts and billing notifications. Connected quotes to paid bookings and implemented permissions for customers, vendors and moderators.
 
-## Experience highlights
+Browse the code · Visit the product
 
-- **Payment reliability at OuroPay:** Implemented idempotency and pre-transfer balance checks, clarified payment statuses and addressed transfer errors. Supported the backend on a platform that processed approximately **900,000 transfers in one month**.
-- **Engineering leadership at LemonWares:** Led frontend architecture across **14 client projects**, mentored **four developers** and introduced GitHub Actions pipelines that brought automated deployments to **under three minutes**.
-- **Commerce at SalesDock:** Connected point-of-sale checkout, online storefronts and shared inventory, with audit trails for sales, discounts and refunds.
-- **Payments at Evalocal:** Integrated Stripe for deposits, milestone payouts and billing notifications, alongside permissions for customers, vendors and moderators.
-- **Learning platforms at Aakkio:** Delivered a multi-tenant application with recurring billing, role-based access, progress tracking and instructor analytics.
+<sub>This repository is a fork of the LemonWares project; the description above identifies my contributions.</sub>
+Aakkio ↗
+Learning platform · Multi-tenancy and performance
 
-## Selected public projects
+Delivered recurring billing, role-based access, student progress APIs and instructor analytics. Improved Next.js rendering and caching, reducing First Contentful Paint from 2.5 to 1.4 seconds.
 
-### [Hausevo](https://github.com/thatmanfrancis/Hausevo)
+Browse the code · Visit the product
+Hausevo ↗
+Property technology · Tenancy and operations
 
-A real estate and tenancy management platform for Nigeria, covering property discovery, tenant and landlord workflows, payments, maintenance and administration.
+A real estate platform covering property listings, tenant management, maintenance, disputes and administrative workflows.
 
-### [Evalocal](https://github.com/thatmanfrancis/Evalocal)
+Explore the repository
+My toolkit
+TypeScript · JavaScript · React · Next.js · Node.js · Express · PHP · Laravel
 
-A UK events marketplace connecting customers and vendors. My contributions included Stripe integration, booking workflows and access controls. This repository is a fork of the LemonWares project.
+PostgreSQL, MySQL, MongoDB, Redis, Prisma, SQL, REST APIs, GraphQL, Stripe and bank integrations, role-based access control, automated testing, Git, GitHub Actions, CI/CD, AWS, Terraform, Docker, Linux, Nginx, PM2 and Sentry.
 
-### [Aakkio](https://github.com/thatmanfrancis/Aakkio)
+I choose tools around the problem and I'm open to learning new languages and frameworks when the work calls for them.
+<div align="center">Have an engineering problem worth solving?
+Open to full-stack, backend and frontend engineering opportunities, including remote work and relocation.
 
-A learning platform for students, instructors and organisations. My work included multi-tenant workflows, recurring billing, Node.js APIs and rendering performance improvements.
-
-## Technologies
-
-| Area | Tools |
-| --- | --- |
-| Frontend | TypeScript, JavaScript, React, Next.js |
-| Backend | Node.js, Express, PHP, Laravel, REST APIs, GraphQL |
-| Data | PostgreSQL, MySQL, MongoDB, Redis, Prisma |
-| Payments & access | Bank integrations, Stripe, role-based access control |
-| Delivery & operations | GitHub Actions, Docker, AWS, Terraform, Linux, Nginx, PM2, Sentry |
-| Quality | Automated testing, code reviews, web performance optimisation |
-
-## Let's connect
-
-Open to conversations about full-stack and backend engineering roles. I enjoy solving product problems, collaborating with other engineers and learning new languages when the work calls for them.
-
-Reach me at **[francis@syntiqhq.com](mailto:francis@syntiqhq.com)**.
+Let's talk · See my portfolio · Connect on LinkedIn
+</div>
