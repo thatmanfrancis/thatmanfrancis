@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/francis-banner.png" width="100%" alt="Francis Uzoigwe — Senior Full Stack Software Engineer. Engineering reliable digital products." />
+<img src="francis-banner.png" width="100%" alt="Francis Uzoigwe — Senior Full Stack Software Engineer. Engineering reliable digital products." />
 
 [Portfolio](https://francisuzoigwe.me) &nbsp; · &nbsp; [LinkedIn](https://www.linkedin.com/in/francisuzoigwe) &nbsp; · &nbsp; [Email](mailto:francis@syntiqhq.com)
 
