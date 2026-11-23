@@ -1,96 +1,32 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk } from "next/font/google";
-import {
-  getSiteOrigin,
-  metaDescription,
-  PERSON_NAME,
-  siteKeywords,
-  twitterHandle,
-} from "@/lib/seo";
-import { getSettings } from "@/lib/settings";
+import { DM_Sans, Syne } from "next/font/google";
+import type { ReactNode } from "react";
+import { profile } from "@/content/portfolio";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const syne = Syne({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-syne",
+  display: "swap",
 });
 
-export const viewport: Viewport = {
-  themeColor: "#ffffff",
-  colorScheme: "light",
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: `${profile.name} | ${profile.role}`,
+  description: profile.intro,
 };
 
-export async function generateMetadata(): Promise<Metadata> {
-  const settings = await getSettings();
-  const origin = getSiteOrigin();
-  const description = metaDescription(settings.metaDescription);
-  const keywords = siteKeywords(settings.skills);
-  const ogImage = settings.aboutImageUrl ?? "/brand/fk-lockup.png";
-  const googleSiteVerification =
-    process.env.GOOGLE_SITE_VERIFICATION?.trim() || undefined;
+export const viewport: Viewport = { colorScheme: "light" };
 
-  return {
-    metadataBase: new URL(origin),
-    title: {
-      default: `${settings.siteName} — ${PERSON_NAME}`,
-      template: `%s — ${settings.siteName}`,
-    },
-    description,
-    applicationName: settings.siteName,
-    authors: [{ name: PERSON_NAME, url: origin }],
-    creator: PERSON_NAME,
-    publisher: PERSON_NAME,
-    keywords,
-    category: "technology",
-    classification: "Personal portfolio",
-    formatDetection: {
-      email: true,
-      address: true,
-      telephone: true,
-    },
-    verification: {
-      google: googleSiteVerification,
-    },
-    robots: { index: true, follow: true },
-    alternates: {
-      canonical: "/",
-      types: {
-        "application/rss+xml": "/feed.xml",
-      },
-    },
-    openGraph: {
-      type: "website",
-      locale: "en_NG",
-      siteName: settings.siteName,
-      title: `${settings.siteName} — ${PERSON_NAME}`,
-      description,
-      images: [{ url: ogImage }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${settings.siteName} — ${PERSON_NAME}`,
-      description,
-      creator: twitterHandle(settings.socialX),
-      images: [ogImage],
-    },
-    icons: {
-      icon: "/brand/fk-mark.png",
-      shortcut: "/brand/fk-mark.png",
-      apple: "/brand/fk-mark.png",
-    },
-  };
-}
-
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html
-      lang="en"
-      data-scroll-behavior="smooth"
-      className={`${spaceGrotesk.variable} h-full antialiased`}
-      style={{ colorScheme: "light" }}
-    >
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+    <html lang="en" className={`${syne.variable} ${dmSans.variable}`}>
+      <body className="font-body antialiased">{children}</body>
     </html>
   );
 }
