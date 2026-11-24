@@ -1,5 +1,7 @@
+import type { Metadata } from "next";
 import Image from "next/image";
-import { experience, profile, projects } from "@/content/portfolio";
+import Link from "next/link";
+import { experience, profile, projects, siteUrl } from "@/content/portfolio";
 import { CvDialog } from "./cv-dialog";
 import { ExperienceTabs } from "./experience-tabs";
 import { LagosClock } from "./lagos-clock";
@@ -8,6 +10,18 @@ import { ProjectLinks } from "./project-links";
 import { ScrollHeader } from "./scroll-header";
 import { TransferDemo } from "./transfer-demo";
 import { EmailIcon, FacebookIcon, GithubIcon, InstagramIcon, LinkedinIcon, WhatsAppIcon, XIcon } from "./social-icons";
+
+const title = `${profile.name} | ${profile.role} in Lagos, Nigeria`;
+const description = "Francis Uzoigwe is a senior full-stack software engineer in Lagos, Nigeria. Explore his work in payment APIs, marketplace checkout, and business applications.";
+const socialImage = { url: "/brand/social-card.png", width: 1200, height: 630, alt: "Francis Uzoigwe, Senior Full Stack Software Engineer in Lagos, Nigeria" };
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: { canonical: "/" },
+  openGraph: { type: "website", url: "/", siteName: profile.name, title, description, images: [socialImage] },
+  twitter: { card: "summary_large_image", title, description, images: [socialImage] },
+};
 
 const socials = [
   { label: "GitHub", href: profile.github, Icon: GithubIcon },
@@ -23,13 +37,32 @@ const contactChannels = [
   ...socials,
 ];
 
+const profileSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  url: `${siteUrl}/`,
+  mainEntity: {
+    "@type": "Person",
+    name: profile.name,
+    alternateName: profile.fullName,
+    jobTitle: profile.role,
+    description: profile.intro,
+    image: new URL(profile.portrait, siteUrl).href,
+    homeLocation: { "@type": "Place", name: profile.location },
+    sameAs: [profile.github, profile.linkedin],
+  },
+};
+
 export default function Home() {
   const email = `mailto:${profile.email}`;
 
   return (
-    <main className="portfolio">
+    <main className="portfolio" id="top">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(profileSchema).replace(/</g, "\\u003c") }} />
       <ScrollHeader>
-        <span>@thatmanfrancis</span>
+        <a className="masthead-brand" href="#top" aria-label={`${profile.name}, back to top`}>
+          {profile.signature}
+        </a>
         <nav className="section-nav" aria-label="On this page">
           <a href="#about">About</a>
           <a href="#experience">Experience</a>
@@ -122,7 +155,7 @@ export default function Home() {
               <div className="story-copy">
                 <p>{project.category}</p>
                 <div className="story-heading linked-name">
-                  <h3>{project.name}</h3>
+                  <h3><Link className="case-study-link" href={`/work/${project.slug}/`} prefetch={false}>{project.name}</Link></h3>
                   <ProjectLinks {...project} />
                 </div>
                 <div className="story-note">

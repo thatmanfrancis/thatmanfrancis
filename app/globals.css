@@ -40,7 +40,29 @@ body { background: var(--canvas); color: var(--ink); }
 a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 html { scroll-padding-block-start: calc(var(--masthead-height, 0px) + 1rem); }
 .shell { width: min(calc(100% - 3rem), 70rem); margin-inline: auto; }
+.site-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .25rem 1.5rem; padding-block: .65rem; border-top: 1px solid var(--rule); color: var(--soft-ink); font-size: .875rem; }
+.site-footer a { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 650; }
+.site-footer a:is(:hover, :focus-visible) { color: var(--link-hover); }
+@media (max-width: 36rem) {
+  .site-footer { justify-content: center; text-align: center; }
+}
 .masthead { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .3rem 1rem; padding-block: 1.5rem; border-bottom: 1px solid var(--rule); color: var(--soft-ink); font-size: .9rem; font-weight: 600; }
+.masthead-brand, .splash-signature { font-family: var(--font-signature), "Segoe Script", cursive; font-weight: 400; line-height: 1; color: var(--deep); }
+.masthead-brand { display: inline-grid; place-items: center; min-width: 2.75rem; min-height: 2.75rem; font-size: 2.05rem; }
+.masthead-brand:is(:hover, :focus-visible) { color: var(--link-hover); }
+.brand-splash { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  html[data-brand-intro] .brand-splash { position: fixed; inset: 0; z-index: 10; display: grid; place-items: center; background: var(--canvas); pointer-events: none; animation: splash-exit 1s ease-out both; }
+  .splash-signature { position: relative; display: inline-block; padding: .15em .22em; font-size: clamp(4rem, 14vw, 8rem); animation: splash-write 550ms cubic-bezier(.3,.1,.35,1) both; }
+  .splash-signature::after { content: ""; position: absolute; right: .27em; bottom: .03em; left: .32em; height: .035em; border-radius: 50%; background: var(--link-hover); transform-origin: left; animation: splash-underline 190ms ease-out 470ms both; }
+  html[data-brand-intro] body:has(:focus-visible) .brand-splash { display: none; }
+  @keyframes splash-exit {
+    0%, 76% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+  }
+  @keyframes splash-write { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
+  @keyframes splash-underline { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+}
 .scroll-header { position: sticky; inset-block-start: 0; z-index: 5; background: var(--canvas); }
 .scroll-header[data-hidden]:not(:has(:focus-visible)) { transform: translateY(-100%); }
 @media (prefers-reduced-motion: no-preference) {
@@ -60,7 +82,7 @@ html { scroll-padding-block-start: calc(var(--masthead-height, 0px) + 1rem); }
 .contact-links { margin-top: 1.75rem; display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.25rem; color: var(--soft-ink); }
 .social-rail { display: flex; gap: .2rem; }
 .social-rail a { min-width: 2.75rem; min-height: 2.75rem; display: grid; place-items: center; }
-.social-rail svg { width: 1.125rem; height: 1.125rem; transform-origin: center bottom; }
+.social-rail svg { width: 1.4375rem; height: 1.4375rem; transform-origin: center bottom; }
 .social-rail a:is(:hover, :focus-visible) { color: var(--ink); }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -101,7 +123,7 @@ html { scroll-padding-block-start: calc(var(--masthead-height, 0px) + 1rem); }
 .transfer-options button:is(:hover, :focus-visible) { border-color: var(--deep); }
 .transfer-options button[aria-pressed="true"] { background: var(--deep); color: var(--canvas); }
 .transfer-options button:focus-visible { outline: 2px solid var(--deep); outline-offset: 2px; }
-.transfer-json { min-width: 0; margin: 0; padding: clamp(.85rem, 2.5vw, 1.5rem); border: 1px solid var(--rule); border-radius: .5rem; background: var(--canvas); color: var(--deep); font-size: clamp(.75rem, 1.3vw, .9rem); line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; }
+.transfer-json { min-width: 0; margin: 0; padding: clamp(.75rem, 2.5vw, 1.35rem); border: 1px solid var(--rule); border-radius: .5rem; background: var(--canvas); color: var(--deep); font-size: clamp(.7rem, 1.15vw, .8rem); line-height: 1.45; white-space: pre-wrap; overflow-wrap: anywhere; }
 .project-list { display: grid; gap: clamp(2.5rem, 7vw, 5rem); margin-top: clamp(1.5rem, 4vw, 3rem); }
 @media (min-width: 54rem) {
   .project-story { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: center; gap: 0; }
@@ -219,11 +241,35 @@ html:has(.cv-dialog[open]) { overflow: hidden; }
 .cv-document img + img { margin-top: clamp(.5rem, 2vw, 1.25rem); }
 .project-dialog { width: min(45rem, calc(100% - 2rem)); height: fit-content; max-height: 88dvh; }
 .project-preview-details { min-height: 0; overflow: auto; padding: clamp(1rem, 3vw, 2rem); }
-.project-preview-details h3 { margin-bottom: .85rem; }
+.project-preview-details h2, .case-study-layout article h2 { font-size: 1rem; margin-bottom: .85rem; }
 .case-study-role { color: var(--soft-ink); margin-bottom: 1.1rem; }
 .case-study-steps { display: grid; gap: 1rem; margin-bottom: 1.4rem; }
 .case-study-steps dt { font-weight: 750; color: var(--deep); }
 .case-study-steps dd { margin-top: .25rem; color: var(--soft-ink); }
+
+.case-study-link { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: .15em; }
+.case-study-link:is(:hover, :focus-visible) { color: var(--link-hover); text-decoration-color: currentColor; }
+.case-study-page { padding-block: clamp(2rem, 6vw, 5rem); }
+.not-found-page { display: grid; align-content: center; justify-items: start; min-height: 80svh; max-width: 44rem; }
+.not-found-page h1 { font-size: clamp(2.75rem, 8vw, 5.5rem); }
+.not-found-page .not-found-actions { margin-top: 1.8rem; }
+.case-study-page > a { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 650; text-decoration-color: currentColor; }
+.case-study-header { margin-block: clamp(1.5rem, 4vw, 3rem); }
+.case-study-header h1 { max-width: 20ch; font-size: clamp(2.15rem, 5.5vw, 4.8rem); letter-spacing: -.06em; margin-block: .3rem 1rem; }
+.case-study-header p { max-width: 60ch; color: var(--soft-ink); }
+.privacy-back { display: inline-flex; align-items: center; gap: .5rem; min-height: 2.75rem; margin-bottom: .5rem; color: var(--deep); font-size: .9rem; font-weight: 650; }
+.privacy-back:is(:hover, :focus-visible) { color: var(--link-hover); }
+.privacy-copy { display: grid; gap: 1.75rem; max-width: 64ch; }
+.privacy-copy h2 { margin-bottom: .5rem; font-size: 1.25rem; }
+.privacy-copy p { color: var(--soft-ink); }
+.privacy-copy p + p { margin-top: .75rem; }
+.privacy-copy a { color: var(--deep); text-decoration: underline; text-underline-offset: .2em; overflow-wrap: anywhere; }
+.privacy-copy a:is(:hover, :focus-visible) { color: var(--link-hover); }
+.case-study-layout { display: grid; gap: 1.75rem 3rem; align-items: start; margin-bottom: 2rem; }
+.case-study-layout article { max-width: 65ch; }
+@media (min-width: 54rem) {
+  .case-study-layout { grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); }
+}
 
 .contact-section { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 1.5rem 3rem; border-top: 1px solid var(--rule); padding-block: clamp(2.5rem, 6vw, 5rem) clamp(3.5rem, 8vw, 7rem); }
 .contact-section h2 { font-size: clamp(2.75rem, 6.6vw, 5.5rem); line-height: 1; letter-spacing: -.06em; }
@@ -250,6 +296,7 @@ html:has(.cv-dialog[open]) { overflow: hidden; }
 }
 
 @media (max-width: 48rem) {
+  .masthead-location { flex-basis: 100%; justify-content: center; text-align: center; }
   .content-section, #about { grid-template-columns: minmax(0, 1fr); }
   .intro { text-align: center; }
   .intro-details > p { margin-inline: auto; }
@@ -258,6 +305,8 @@ html:has(.cv-dialog[open]) { overflow: hidden; }
   .social-rail { flex-wrap: wrap; }
   .about-content { grid-template-columns: minmax(0, 1fr); }
   .about-portrait { grid-row: 1; justify-self: center; max-width: 10rem; }
+  #about > h2 { text-align: center; }
+  .about-copy { margin-inline: auto; }
 }
 @media (max-width: 30rem) {
   .career-list summary { grid-template-columns: minmax(0, 1fr) 1rem; }

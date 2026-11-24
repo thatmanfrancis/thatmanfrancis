@@ -2,13 +2,7 @@
 
 import { useId, useRef } from "react";
 import type { Project } from "@/content/portfolio";
-
-const caseStudySections = [
-  ["situation", "Situation"],
-  ["task", "Task"],
-  ["action", "Action"],
-  ["result", "Result"],
-] as const;
+import { CaseStudyDetails } from "./case-study-details";
 
 export function ProjectPreview({ project }: { project: Project }) {
   const id = useId();
@@ -40,19 +34,7 @@ export function ProjectPreview({ project }: { project: Project }) {
           </div>
         </div>
         <div className="project-preview-details">
-          <p className="case-study-role">{project.role} · {project.period}</p>
-          <dl className="case-study-steps">
-            {caseStudySections.map(([key, label]) => (
-              <div key={key}>
-                <dt>{label}</dt>
-                <dd>{project.caseStudy[key]}</dd>
-              </div>
-            ))}
-          </dl>
-          <h3>Tools and techniques</h3>
-          <ul className="story-tools">
-            {project.tools.map((tool) => <li key={tool}>{tool}</li>)}
-          </ul>
+          <CaseStudyDetails project={project} />
         </div>
       </dialog>
     </>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://francisuzoigwe.me/sitemap.xml

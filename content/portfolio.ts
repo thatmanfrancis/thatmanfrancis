@@ -1,5 +1,8 @@
+export const siteUrl = "https://francisuzoigwe.me";
+
 export const profile = {
   name: "Francis Uzoigwe",
+  signature: "Francis",
   fullName: "Francis Kossyrisochukwu Uzoigwe",
   role: "Senior Full Stack Software Engineer",
   location: "Lagos, Nigeria",
@@ -50,6 +53,7 @@ export const profile = {
 export type Project = {
   slug: string;
   name: string;
+  caseStudyTitle: string;
   category: string;
   period: string;
   role: string;
@@ -69,6 +73,7 @@ export const projects: Project[] = [
   {
     slug: "ouropay",
     name: "OuroPay",
+    caseStudyTitle: "OuroPay transfer reliability",
     category: "Payment infrastructure",
     period: "Jul–Sep 2026",
     role: "Backend Engineer · Freelance contract",
@@ -92,6 +97,7 @@ export const projects: Project[] = [
   {
     slug: "evalocal",
     name: "Evalocal",
+    caseStudyTitle: "Evalocal marketplace payments and booking",
     category: "Events marketplace",
     period: "Jan–Dec 2025",
     role: "Full Stack Engineer · Freelance contract",
@@ -118,6 +124,7 @@ export const projects: Project[] = [
   {
     slug: "aakkio",
     name: "Aakkio",
+    caseStudyTitle: "Aakkio learning platform performance",
     category: "Learning platform",
     period: "Mar–Dec 2024",
     role: "Full Stack Engineer · Freelance contract",
@@ -143,6 +150,7 @@ export const projects: Project[] = [
   {
     slug: "salesdock",
     name: "SalesDock",
+    caseStudyTitle: "SalesDock point of sale and inventory",
     category: "Retail operations",
     period: "Feb–Aug 2026",
     role: "Full Stack Engineer · Freelance contract",
@@ -196,25 +204,42 @@ export const experience: Pick<Project, "name" | "period" | "role" | "contributio
   },
 ];
 
+const sampleTransfer = {
+  transfer_id: "tr_demo_0001",
+  reference: "demo-order-42",
+  amount_minor: 2450000,
+  currency: "NGN",
+  sender: {
+    user_id: "usr_demo_01",
+    name: "Demo Customer",
+  },
+  recipient: {
+    bank: "Sample Bank",
+    account: "******1234",
+  },
+};
+
 export const transferDemo = {
   label: "Sample API response",
   states: [
     {
       label: "Pending",
       response: {
-        transfer_id: "demo_0001",
+        ...sampleTransfer,
         status: "pending",
         code: "AWAITING_CONFIRMATION",
         message: "Awaiting confirmation.",
+        next_action: "check_status",
       },
     },
     {
       label: "Failed",
       response: {
-        transfer_id: "demo_0001",
+        ...sampleTransfer,
         status: "failed",
         code: "INSUFFICIENT_FUNDS",
         message: "Not enough funds to transfer.",
+        next_action: "add_funds",
       },
     },
   ],
