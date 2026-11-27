@@ -100,7 +100,7 @@ export default function Home() {
             <ul className="stack-list">
               {profile.skills.map(({ name, icon }) => (
                 <li key={name}>
-                  <Image src={`/images/tech/${icon}.svg`} alt="" width={18} height={18} unoptimized />
+                  {icon && <Image src={`/images/tech/${icon}.svg`} alt="" width={18} height={18} unoptimized />}
                   {name}
                 </li>
               ))}
@@ -109,7 +109,7 @@ export default function Home() {
             <ul className="stack-list">
               {profile.infrastructure.map(({ name, icon }) => (
                 <li key={name}>
-                  <Image src={`/images/tech/${icon}.svg`} alt="" width={18} height={18} unoptimized />
+                  {icon && <Image src={`/images/tech/${icon}.svg`} alt="" width={18} height={18} unoptimized />}
                   {name}
                 </li>
               ))}
