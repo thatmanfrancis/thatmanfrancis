@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { experience, profile, projects, siteUrl } from "@/content/portfolio";
-import { CvDialog } from "./cv-dialog";
 import { ExperienceTabs } from "./experience-tabs";
 import { LagosClock } from "./lagos-clock";
 import { ProjectPreview } from "./project-preview";
@@ -78,7 +77,7 @@ export default function Home() {
         <div className="intro-details">
           <p>{profile.intro}</p>
           <div className="intro-actions">
-            {profile.resume && <CvDialog src={profile.resume} />}
+            <a className="cv-link" href="#experience">View experience</a>
             <a className="work-link" href="#work">Selected work</a>
           </div>
         </div>

@@ -88,7 +88,8 @@ export const projects: Project[] = [
       result: "Monthly duplicates fell from 300 to one. Balance checks blocked 120 insufficient-funds requests in the first month. Monthly payment-status tickets fell from 100 to 55, and transfer-related 5xx errors fell from 2.0% to 0.5%. The platform reached approximately 900,000 transfers in a single month and served over three million customers.",
     },
     contributions: [
-      "Added transfer idempotency and pre-transfer balance checks. Monthly duplicates fell from 300 to one (99.7%), and the checks blocked 120 insufficient-funds requests in the first month.",
+      "Implemented idempotency so clients could safely retry transfer requests. Monthly duplicate transfers fell from 300 to one (99.7%).",
+      "Added pre-transfer balance checks that blocked 120 insufficient-funds requests in the first month.",
       "Standardised API responses for pending and failed payments. Monthly payment-status support tickets fell from 100 to 55.",
       "Supported the transfer backend as volume grew from approximately 100 monthly transfers to 900,000 in a single month on a platform serving over three million customers.",
       "Reduced transfer-related 5xx errors from 2.0% to 0.5%, a 75% relative reduction.",
@@ -113,7 +114,8 @@ export const projects: Project[] = [
       result: "Deposit completion rose from 70% to 85%, and quote-to-paid-booking conversion rose from 20% to 25%. All 18 role-and-resource permission tests passed.",
     },
     contributions: [
-      "Added Stripe deposits, milestone payouts, and billing notifications to the UK marketplace, which previously used Flutterwave and Paystack. Deposit completion rose from 70% to 85%.",
+      "Integrated Stripe deposits into a UK marketplace that previously used Flutterwave and Paystack. Deposit completion rose from 70% to 85%.",
+      "Implemented milestone payouts and billing notifications for the marketplace.",
       "Connected vendor quotes, bookings, and deposits so customers could pay within the marketplace. Quote-to-paid-booking conversion rose from 20% to 25%.",
       "Restricted access to customer enquiries and vendor financial data with distinct customer, vendor, and moderator permissions. All 18 role-and-resource permission tests passed.",
     ],
@@ -140,7 +142,9 @@ export const projects: Project[] = [
       result: "The first cohort included 200 learners across five organisations. First Contentful Paint fell from 2.5 to 1.4 seconds, and weekly reporting preparation fell from two hours to 30 minutes per instructor.",
     },
     contributions: [
-      "Delivered a multi-tenant learning platform in eight weeks with recurring billing and separate permissions for students, instructors, and administrators. The first cohort included 200 learners across five organisations.",
+      "Delivered a multi-tenant learning platform in eight weeks. The first cohort included 200 learners across five organisations.",
+      "Built separate permissions for students, instructors, and administrators.",
+      "Implemented recurring billing for the learning platform.",
       "Improved Next.js rendering and caching with server-side rendering and incremental static regeneration. First Contentful Paint fell from 2.5 to 1.4 seconds, a 44% improvement.",
       "Built Node.js APIs for student progress and instructor analytics. Weekly reporting preparation fell from two hours to 30 minutes per instructor.",
     ],
@@ -162,10 +166,13 @@ export const projects: Project[] = [
     caseStudy: {
       situation: "Retailers needed to reconcile sales across store and online channels and trace discrepancies when inventory or transaction records diverged.",
       task: "Unify checkout, storefront orders, and inventory in one workspace and make sales adjustments traceable.",
-      action: "Connected in-store and online checkout, synchronised orders with shared stock records, and added audit trails for sales, discounts, and refunds.",
-      result: "Daily reconciliation went from 60 to 30 minutes per merchant, monthly stock discrepancies fell from 40 to 12, and median transaction investigation time dropped from 20 to eight minutes.",
+      action: "Connected in-store and online checkout, synchronised orders with shared stock records, and added audit trails for sales, discounts, and refunds. Added rate limits to curb excessive requests and enforced authorisation checks on restricted actions, including a rule that prevents signed-in administrators from deleting their own accounts.",
+      result: "SalesDock grew to over 100 daily active users. Daily reconciliation went from 60 to 30 minutes per merchant, monthly stock discrepancies fell from 40 to 12, and median transaction investigation time dropped from 20 to eight minutes.",
     },
     contributions: [
+      "Helped build a point-of-sale and inventory platform used by over 100 daily active users.",
+      "Added rate limits to curb excessive requests and enforced authorisation checks on restricted actions.",
+      "Prevented signed-in administrators from deleting their own accounts.",
       "Connected in-store and online sales, cutting daily reconciliation time from 60 to 30 minutes per merchant.",
       "Synchronised online orders with shared stock records. Monthly stock discrepancies fell from 40 to 12.",
       "Added audit trails for sales, discounts, and refunds, reducing median investigation time from 20 to eight minutes.",
@@ -183,9 +190,12 @@ export const experience: Pick<Project, "name" | "period" | "role" | "contributio
     role: "Lead Full Stack Engineer · Full-time",
     website: "https://lemonwares.com",
     contributions: [
+      "Helped raise over $40,000 in my first few months at LemonWares.",
       "Replaced manual uploads with GitHub Actions CI/CD across 14 client applications. Automated deployments took under three minutes. Developers previously waited up to three hours after an upload to verify changes.",
       "Enforced role-based permissions to restrict merchant functions to the correct users. All 12 previously failing staff-permission tests passed.",
-      "Set frontend standards across 14 projects and mentored four developers. Introduced TypeScript strict mode, review checklists, and automated tests. Monthly production defects fell from 20 to 12, and median review rework rounds fell from three to two.",
+      "Set frontend standards across 14 projects, introducing TypeScript strict mode and automated tests. Monthly production defects fell from 20 to 12.",
+      "Introduced review checklists as part of the frontend standards. Median review rework fell from three rounds to two.",
+      "Mentored four developers in using Git for version control, collaborating through GitHub pull requests and code reviews, and writing clear documentation so teammates could understand and maintain the code.",
     ],
   },
   ...projects.map(({ name, period, role, contributions, website, source }) => ({ name, period, role, contributions, website, source }))
@@ -199,7 +209,8 @@ export const experience: Pick<Project, "name" | "period" | "role" | "contributio
     role: "Frontend Developer",
     contributions: [
       "Helped address slow loading in a legacy WordPress application by migrating its frontend to a decoupled React progressive web app.",
-      "Built accessible React interfaces and integrated REST APIs to connect the replacement frontend to application data.",
+      "Built accessible React interfaces for the replacement frontend.",
+      "Integrated REST APIs to connect the new frontend to existing application data.",
     ],
   },
 ];
